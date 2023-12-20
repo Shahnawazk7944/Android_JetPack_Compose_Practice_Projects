@@ -28,7 +28,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
 
 @Composable
 fun GoogleLoginButton() {
@@ -36,7 +35,7 @@ fun GoogleLoginButton() {
     var clicked by remember {
         mutableStateOf(false)
     }
-    var authType = "Sign Up with Google"
+    val authType = "Sign Up with Google"
     Surface(
         onClick = { clicked = !clicked },
         shape = ShapeDefaults.Medium,
@@ -77,6 +76,6 @@ fun GoogleLoginButton() {
 
 @Preview(showBackground = true)
 @Composable
-fun googleLogingButtonPreview() {
+fun GoogleLogingButtonPreview() {
     GoogleLoginButton()
 }
