@@ -22,7 +22,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    GoogleLoginButton()
+                    CoilPractice()
+//                    CoilPractice2()
+//                    CoilPractice3()
                 }
             }
         }
