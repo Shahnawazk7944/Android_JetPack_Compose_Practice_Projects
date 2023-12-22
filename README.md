@@ -1,7 +1,7 @@
 <p align="center"><img src="app/src/main/res/drawable/text_field_screenshot.png" width="220" height="400"></p>
 <p align="center"><img src="app/src/main/res/drawable/google_button_login.gif" width="220" height="400" ></p>
 <p align="center"><img src="app/src/main/res/drawable/coil.gif" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
+<p align="center"><img src="app/src/main/res/drawable/password_field.gif" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>

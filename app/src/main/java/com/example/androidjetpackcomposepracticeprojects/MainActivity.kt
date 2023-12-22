@@ -22,7 +22,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    CoilPractice()
+                    PasswordField()
+      //              CoilPractice()
 //                    CoilPractice2()
 //                    CoilPractice3()
                 }
