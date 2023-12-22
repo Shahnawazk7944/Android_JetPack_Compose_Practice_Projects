@@ -9,3 +9,13 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+val gradient_11 = Color(0xFFD38312)
+val gradient_12 = Color(0xFFA83279)
+
+val gradient_21 = Color(0xFF000046)
+val gradient_22 = Color(0xFF1CB5E0)
+val gradient_23 = Color(0xFFFFFFFF)
+
+val gradient_31 = Color(0xFF373B44)
+val gradient_32 = Color(0xFF4286f4)
