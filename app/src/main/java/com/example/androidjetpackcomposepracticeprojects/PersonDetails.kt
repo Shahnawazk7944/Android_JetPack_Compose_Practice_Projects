@@ -31,7 +31,7 @@ fun PersonDetails(person: Person) {
         horizontalAlignment = Alignment.Start,
         //verticalArrangement = Arrangement.spacedBy(5.dp)
     ) {
-
+//this Row represent the persons Age and Name
         Row {
             Text(
                 text = "${person.age}",
@@ -48,12 +48,15 @@ fun PersonDetails(person: Person) {
             )
         }
 
+        //the text Compose is for persons phone or contact number
+
         Text(
             text = "Phone - ${person.phone}",
             color = RootBeer,
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold
         )
+        //this Row is for persons residence details like Country and Postal code
 
         Row {
             Text(
