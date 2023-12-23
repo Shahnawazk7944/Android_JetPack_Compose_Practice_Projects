@@ -19,3 +19,10 @@ val gradient_23 = Color(0xFFFFFFFF)
 
 val gradient_31 = Color(0xFF373B44)
 val gradient_32 = Color(0xFF4286f4)
+
+
+val ChocolateBrown = Color(0xFF3f000f)
+val RootBeer = Color(0xFF2c1608)
+val DarkBrown = Color(0xFF1e0d07)
+val PaleYellow = Color(0xFFffffbf)
+val AzureMist = Color(0xFFf0ffff)
