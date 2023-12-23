@@ -3,7 +3,7 @@
 <p align="center"><img src="app/src/main/res/drawable/coil.gif" width="220" height="400" ></p>
 <p align="center"><img src="app/src/main/res/drawable/password_field.gif" width="220" height="400" ></p>
 <p align="center"><img src="app/src/main/res/drawable/gradient_button.png" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
+<p align="center"><img src="app/src/main/res/drawable/lazy_column.gif" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>

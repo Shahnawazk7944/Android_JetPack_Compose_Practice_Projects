@@ -3,8 +3,10 @@ package com.example.androidjetpackcomposepracticeprojects
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -46,6 +48,43 @@ fun Gradient_Button(
     }
 
 }
+
+
+//Function Call in MainActivity
+//Row {
+//
+//
+//    Gradient_Button(
+//        text = "Back",
+//        textColor = Color.White,
+//        gradient = Brush.horizontalGradient(
+//            colors = listOf(
+//                gradient_31, gradient_32
+//            )
+//        )
+//    ) {
+//
+//    }
+//
+//    Spacer(modifier = Modifier.width(10.dp))
+//
+//    Gradient_Button(
+//        text = "Proceed",
+//        textColor = Color.White,
+//        gradient = Brush.horizontalGradient(
+//            colors = listOf(
+//                gradient_21, gradient_22,
+//            )
+//        )
+//    ) {
+//
+//    }
+//}
+
+
+
+
+
 
 @Preview(showBackground = true)
 @Composable
