@@ -30,27 +30,18 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-//          PersonDetails(person =
-//              Person(
-//                      age = 54,
-//                      name = "Demetria Wilkins",
-//                      phone = 65247134,
-//                      country = "Russian Federation",
-//                      postalCode = 489625
-//              )
-//
-//          )
+                    TextFields()
 
-                    val personData = PersonData()
-                    val getAllPersonData = personData.getAllPersonsData()
-                    LazyColumn(
-                        contentPadding = PaddingValues(all = 12.dp),
-                        verticalArrangement = Arrangement.spacedBy(12.dp)
-                    ) {
-                        items(items = getAllPersonData) { person ->
-                            PersonDetails(person = person)
-                        }
-                    }
+//                    val personData = PersonData()
+//                    val getAllPersonData = personData.getAllPersonsData()
+//                    LazyColumn(
+//                        contentPadding = PaddingValues(all = 12.dp),
+//                        verticalArrangement = Arrangement.spacedBy(12.dp)
+//                    ) {
+//                        items(items = getAllPersonData) { person ->
+//                            PersonDetails(person = person)
+//                        }
+//                    }
 
 
                 }

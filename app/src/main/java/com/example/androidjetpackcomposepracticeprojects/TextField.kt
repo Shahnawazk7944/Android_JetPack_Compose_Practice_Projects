@@ -35,13 +35,19 @@ fun TextFields() {
         var text by remember {
             mutableStateOf("")
         }
-        OutlinedTextField(value = text, onValueChange = { newText -> text = newText },
+        val maxChar = 12
+
+        OutlinedTextField(value = text, onValueChange = {
+            if (it.length <= maxChar) {
+                text = it
+            }
+        },
             label = {
                 Text(text = "Email")
             },
 
             colors = OutlinedTextFieldDefaults.colors(focusedBorderColor = Color.Blue),
-           // singleLine = true
+            // singleLine = true
 
             leadingIcon = {
                 IconButton(
@@ -51,7 +57,7 @@ fun TextFields() {
             },
             trailingIcon = {
                 IconButton(
-                    onClick = {Log.d("seee", "Email Submitted")}) {
+                    onClick = { Log.d("seee", "Email Submitted") }) {
                     Icon(imageVector = Icons.Default.Done, contentDescription = "Email Icon")
                 }
             },
@@ -61,7 +67,7 @@ fun TextFields() {
             ),
             keyboardActions = KeyboardActions(
                 onSend = {
-                    Log.d("Email","The Email Submitted is ${text}")
+                    Log.d("Email", "The Email Submitted is ${text}")
                 }
             )
         )
