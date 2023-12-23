@@ -47,7 +47,7 @@ fun PersonDetails(person: Person) {
                 fontWeight = FontWeight.Normal
             )
         }
-
+//..........
         //the text Compose is for persons phone or contact number
 
         Text(
