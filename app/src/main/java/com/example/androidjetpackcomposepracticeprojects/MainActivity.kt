@@ -30,7 +30,8 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    PasswordField()
+                    //its calling new text filed
+                    TextFields()
 
 //                    val personData = PersonData()
 //                    val getAllPersonData = personData.getAllPersonsData()
