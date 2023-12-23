@@ -28,6 +28,7 @@ fun PasswordField() {
     var passwordVisible by remember {
         mutableStateOf(false)
     }
+    val maxChar = 12
 
     val icon = if (passwordVisible) {
         painterResource(id = R.drawable.password_visible, )
@@ -38,7 +39,9 @@ fun PasswordField() {
     OutlinedTextField(
         value = password,
         onValueChange = {
-            password = it
+            if (it.length <= maxChar) {
+                password = it
+            }
         },
         placeholder = { Text(text = "Password") },
         label = { Text(text = "Password")},
