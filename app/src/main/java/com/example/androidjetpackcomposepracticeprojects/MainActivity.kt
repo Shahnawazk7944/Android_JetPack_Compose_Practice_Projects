@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    //Starting Navigation's in JetPack Compose
+                    //Starting Navigation's in JetPack Compose will start insA
 
 
 
