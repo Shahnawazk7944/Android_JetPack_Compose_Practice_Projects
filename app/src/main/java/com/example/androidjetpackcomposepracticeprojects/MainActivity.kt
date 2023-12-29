@@ -30,8 +30,19 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+                    //Starting Navigation's in JetPack Compose
+
+
+
+
+
+
+
+
+
+
                     //its calling new text filed
-                    TextFields()
+//                    TextFields()
 
 //                    val personData = PersonData()
 //                    val getAllPersonData = personData.getAllPersonsData()
