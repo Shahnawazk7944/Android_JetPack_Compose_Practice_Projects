@@ -33,6 +33,8 @@ class MainActivity : ComponentActivity() {
                     //Starting Navigation's in JetPack Compose
                 //
                 // will start by tomorrow insA
+                // will start by tomorrow insA
+                // don't know when will i start again
 
 
 
