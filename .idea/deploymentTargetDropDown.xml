@@ -2,6 +2,25 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="GreetingPreview">
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\Faraz\.android\avd\S23_API_33.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-01-02T16:54:07.097620400Z" />
+        </State>
+      </entry>
+      <entry key="MainActivity">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>
