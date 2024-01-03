@@ -9,7 +9,7 @@
 <p align="center"><img src="app/src/main/res/drawable/state1.gif" width="220" height="400" ></p>
 <p align="center"><img src="app/src/main/res/drawable/state2.gif" width="220" height="400" ></p>
 <p align="center"><img src="app/src/main/res/drawable/state3.gif" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
+<p align="center"><img src="app/src/main/res/drawable/state4.gif" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
