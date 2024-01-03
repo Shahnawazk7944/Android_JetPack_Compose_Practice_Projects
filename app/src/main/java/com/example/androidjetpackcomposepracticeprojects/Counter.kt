@@ -26,20 +26,18 @@ import com.example.androidjetpackcomposepracticeprojects.ui.theme.ChocolateBrown
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.RootBeer
 
 @Composable
-fun Counter() {
+fun Counter(counter:Int,increase:()->Unit) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
 
         ) {
-        var number by remember {
-            mutableIntStateOf(0)
-        }
-        Text(text = "Counter is : $number", fontSize = 30.sp)
+
+        Text(text = "Counter is : $counter", fontSize = 30.sp)
         Spacer(modifier = Modifier.height(20.dp))
         Row {
             Button(
-                onClick = { number++ },
+                onClick = { increase()},
                 modifier = Modifier
                     .height(60.dp)
                     .width(130.dp),
@@ -48,17 +46,23 @@ fun Counter() {
             ) {
                 Text(text = "Increase", fontSize = 18.sp)
             }
-            Spacer(modifier = Modifier.width(10.dp))
-            Button(
-                onClick = { if (number >= 1) number-- },
-                modifier = Modifier
-                    .height(60.dp)
-                    .width(130.dp),
-                colors = ButtonDefaults.buttonColors(RootBeer),
-                shape = ShapeDefaults.Small
-            ) {
-                Text(text = "Decrease", fontSize = 18.sp)
-            }
+
+
+
+
+
+
+//            Spacer(modifier = Modifier.width(10.dp))
+//            Button(
+//                onClick = { if (counter >= 1) decrease() },
+//                modifier = Modifier
+//                    .height(60.dp)
+//                    .width(130.dp),
+//                colors = ButtonDefaults.buttonColors(RootBeer),
+//                shape = ShapeDefaults.Small
+//            ) {
+//                Text(text = "Decrease", fontSize = 18.sp)
+//            }
         }
 
     }
