@@ -27,6 +27,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidJetPackComposePracticeProjectsTheme {
                 // A surface container using the 'background' color from the theme
+
+
                 Column(
                     modifier = Modifier
                         .fillMaxSize(),
@@ -34,20 +36,20 @@ class MainActivity : ComponentActivity() {
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-
-                    val color = remember {
-                        mutableStateOf(gradient_22)
-                    }
-                    ColorBox(
-                        Modifier.weight(1f).fillMaxSize()
-                    ) {
-                        color.value = it
-                    }
-                    Box(
-                        modifier = Modifier
-                            .background(color.value)
-                            .weight(1f).fillMaxSize()
-                    )
+                    Counter()
+//                    val color = remember {
+//                        mutableStateOf(gradient_22)
+//                    }
+//                    ColorBox(
+//                        Modifier.weight(1f).fillMaxSize()
+//                    ) {
+//                        color.value = it
+//                    }
+//                    Box(
+//                        modifier = Modifier
+//                            .background(color.value)
+//                            .weight(1f).fillMaxSize()
+//                    )
                 }
             }
         }
