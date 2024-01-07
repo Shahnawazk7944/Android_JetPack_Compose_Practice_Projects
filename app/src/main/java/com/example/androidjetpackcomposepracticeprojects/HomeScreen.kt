@@ -32,7 +32,7 @@ import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_31
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_32
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(onNavigateToProfile: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -49,7 +49,7 @@ fun HomeScreen() {
         )
         Spacer(modifier = Modifier.height(20.dp))
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { onNavigateToProfile() },
             modifier = Modifier
                // .height(60.dp)
                 //.width(220.dp)

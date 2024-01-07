@@ -11,10 +11,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHost
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.createGraph
 import com.example.androidjetpackcomposepracticeprojects.data.PersonData
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_31
@@ -24,9 +30,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AndroidJetPackComposePracticeProjectsTheme {
+
                 // A surface container using the 'background' color from the theme
                 Column(
-                    modifier = Modifier.fillMaxSize().background(gradient_31),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(gradient_31),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -35,10 +44,7 @@ class MainActivity : ComponentActivity() {
                 // will start by tomorrow insA
                 // will start by tomorrow insA
                 // don't know when will i start again
-
-
-
-
+                    val navController = rememberNavController()
 
 
 
