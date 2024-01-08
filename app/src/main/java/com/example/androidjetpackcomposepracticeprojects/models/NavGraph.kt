@@ -20,7 +20,7 @@ fun NavGraph(
             )
         })}
         composable(route = Screen.Profile.route){
-            ProfileScreen (onNavigateToHome = {navController.navigate(Screen.Home.route)})
+            ProfileScreen (onNavigateToHome = {navController.popBackStack()})
 //            ProfileScreen {
 //                navController.navigate(Screen.Home.route)
 //            }
