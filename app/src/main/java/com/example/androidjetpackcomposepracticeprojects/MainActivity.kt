@@ -16,16 +16,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavHost
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
 import com.example.androidjetpackcomposepracticeprojects.data.PersonData
+import com.example.androidjetpackcomposepracticeprojects.models.NavGraph
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_31
 
 class MainActivity : ComponentActivity() {
+    lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -44,7 +48,8 @@ class MainActivity : ComponentActivity() {
                 // will start by tomorrow insA
                 // will start by tomorrow insA
                 // don't know when will i start again
-                    val navController = rememberNavController()
+                    navController = rememberNavController()
+                    NavGraph(navController = navController)
 
 
 

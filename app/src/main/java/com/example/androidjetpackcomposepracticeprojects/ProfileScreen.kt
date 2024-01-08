@@ -83,5 +83,5 @@ fun ProfileScreen(onNavigateToHome: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun ProfileScreenPreview() {
-    ProfileScreen()
+    ProfileScreen(onNavigateToHome = {})
 }

@@ -51,12 +51,12 @@ fun HomeScreen(onNavigateToProfile: () -> Unit) {
         Button(
             onClick = { onNavigateToProfile() },
             modifier = Modifier
-               // .height(60.dp)
+                // .height(60.dp)
                 //.width(220.dp)
                 .padding(start = 5.dp, end = 5.dp),
             colors = ButtonDefaults.buttonColors(gradient_31),
             shape = ShapeDefaults.Small
-            ) {
+        ) {
 //Pending......
 //Pending......
 //Pending......
@@ -70,7 +70,7 @@ fun HomeScreen(onNavigateToProfile: () -> Unit) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
-            ){
+            ) {
                 Text(
                     text = "Move to PROFILE SCREEN",
                     fontStyle = FontStyle.Italic,
@@ -79,7 +79,11 @@ fun HomeScreen(onNavigateToProfile: () -> Unit) {
                     color = PaleYellow
                 )
                 Spacer(modifier = Modifier.width(5.dp))
-                Icon(imageVector = Icons.Default.ArrowForward, contentDescription =null,tint = PaleYellow)
+                Icon(
+                    imageVector = Icons.Default.ArrowForward,
+                    contentDescription = null,
+                    tint = PaleYellow
+                )
             }
         }
     }
@@ -88,5 +92,5 @@ fun HomeScreen(onNavigateToProfile: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen()
+    HomeScreen(onNavigateToProfile = {})
 }
