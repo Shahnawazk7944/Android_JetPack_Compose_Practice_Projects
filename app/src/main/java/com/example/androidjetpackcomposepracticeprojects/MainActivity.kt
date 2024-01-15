@@ -51,6 +51,14 @@ class MainActivity : ComponentActivity() {
                 // will start by tomorrow insA
                 // will start by tomorrow insA
                 // don't know when will i start again
+                    //Starting Navigation's in JetPack Compose
+                    //
+                    // will start by tomorrow insA
+                    // will start by tomorrow insA
+                    // don't know when will i start again
+                    // will start by tomorrow insA
+                    // will start by tomorrow insA
+                    // don't know when will i start again
 
                     navController = rememberNavController()
                     NavGraph(navController = navController)
