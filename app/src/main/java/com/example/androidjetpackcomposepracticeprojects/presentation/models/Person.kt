@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.models
+package com.example.androidjetpackcomposepracticeprojects.presentation.models
 
 data class Person (
     val age : Int,

@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.models
+package com.example.androidjetpackcomposepracticeprojects.presentation.models
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
