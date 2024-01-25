@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.androidjetpackcomposepracticeprojects.models.ViewModal
+import com.example.androidjetpackcomposepracticeprojects.presentation.models.ViewModal
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_31
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_32

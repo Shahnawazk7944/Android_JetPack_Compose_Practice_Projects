@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.androidjetpackcomposepracticeprojects.models.Person
+import com.example.androidjetpackcomposepracticeprojects.presentation.models.Person
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AzureMist
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.ChocolateBrown
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.DarkBrown

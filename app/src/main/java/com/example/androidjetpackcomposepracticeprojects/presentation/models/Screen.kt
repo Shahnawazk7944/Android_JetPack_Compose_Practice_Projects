@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.models
+package com.example.androidjetpackcomposepracticeprojects.presentation.models
 
 sealed class Screen(val route: String) {
     data object Home : Screen(route = "home")

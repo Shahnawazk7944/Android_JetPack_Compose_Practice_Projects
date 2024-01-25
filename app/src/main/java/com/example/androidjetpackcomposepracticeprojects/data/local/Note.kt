@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.data
+package com.example.androidjetpackcomposepracticeprojects.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

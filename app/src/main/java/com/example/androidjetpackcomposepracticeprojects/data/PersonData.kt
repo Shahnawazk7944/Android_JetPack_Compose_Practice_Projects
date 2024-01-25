@@ -1,6 +1,6 @@
 package com.example.androidjetpackcomposepracticeprojects.data
 
-import com.example.androidjetpackcomposepracticeprojects.models.Person
+import com.example.androidjetpackcomposepracticeprojects.presentation.models.Person
 
 class PersonData {
     fun getAllPersonsData(): List<Person> {

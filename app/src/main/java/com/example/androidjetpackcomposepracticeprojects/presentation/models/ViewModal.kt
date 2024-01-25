@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.models
+package com.example.androidjetpackcomposepracticeprojects.presentation.models
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
