@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.presentation.NotesModels
+package com.example.androidjetpackcomposepracticeprojects.presentation.notesModels
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel

@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.presentation.NotesModels
+package com.example.androidjetpackcomposepracticeprojects.presentation.notesModels
 
 import com.example.androidjetpackcomposepracticeprojects.data.local.Note
 

@@ -1,9 +1,8 @@
-package com.example.androidjetpackcomposepracticeprojects.presentation.NotesModels
+package com.example.androidjetpackcomposepracticeprojects.presentation.notesModels
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import com.example.androidjetpackcomposepracticeprojects.data.local.Note
-import kotlinx.coroutines.flow.MutableStateFlow
 
 data class NoteState(
     val notes: List<Note> = emptyList(),
