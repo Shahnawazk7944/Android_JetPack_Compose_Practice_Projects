@@ -17,6 +17,7 @@
 <p align="center"><img src="https://github.com/Shahnawazk7944/Simple_Age_Calculator/assets/74444644/6f944744-b319-4945-bc4c-36544fd88a89" width="220" height="400" ></p>
 <p align="center"><img src="https://github.com/Shahnawazk7944/Simple_Age_Calculator/assets/74444644/bfe27e96-db18-4d23-a9d3-fffd64a8eb21" width="220" height="400" ></p>
 <p align="center"><img src="app/src/main/res/drawable/view_modal.gif" width="220" height="400" ></p>
+<div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/c190645a-4135-4e83-b69b-ab9e6bb4e7cf" height="400" ></video></div>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
@@ -54,7 +55,10 @@
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
+
+
+
+
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
