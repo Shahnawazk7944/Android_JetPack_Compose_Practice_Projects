@@ -1,30 +1,17 @@
 package com.example.androidjetpackcomposepracticeprojects
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavHostController
@@ -33,13 +20,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.example.androidjetpackcomposepracticeprojects.data.local.NoteDatabase
-import com.example.androidjetpackcomposepracticeprojects.presentation.models.ViewModal
 import com.example.androidjetpackcomposepracticeprojects.presentation.noteUI.AddNotesScreen
 import com.example.androidjetpackcomposepracticeprojects.presentation.noteUI.NotesScreen
 import com.example.androidjetpackcomposepracticeprojects.presentation.notesModels.NotesViewModel
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
-import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_31
-import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_32
 
 class MainActivity : ComponentActivity() {
     lateinit var navController: NavHostController
@@ -49,18 +33,17 @@ class MainActivity : ComponentActivity() {
         Room.databaseBuilder(
             applicationContext,
             NoteDatabase::class.java,
-            name = "notes.db"
+            "notes.db"
         ).build()
     }
 
-    private val viewModal by viewModels<NotesViewModel>(
+    private val viewModel by viewModels<NotesViewModel>(
         factoryProducer = {
             object : ViewModelProvider.Factory {
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     return NotesViewModel(database.dao) as T
                 }
             }
-
         }
     )
 
@@ -74,7 +57,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     //color = MaterialTheme.colorScheme.background
                 ) {
-                    val state by viewModal.state.collectAsState()
+
+                    val state by viewModel.state.collectAsState()
                     navController = rememberNavController()
 
                     NavHost(navController = navController, startDestination = "NotesScreen") {
@@ -84,7 +68,7 @@ class MainActivity : ComponentActivity() {
                             NotesScreen(
                                 state = state,
                                 navController = navController,
-                                onEvent = viewModal::onEvent
+                                onEvent = viewModel::onEvent
                             )
                         }
                         composable(
@@ -94,7 +78,7 @@ class MainActivity : ComponentActivity() {
                             AddNotesScreen(
                                 state = state,
                                 navController = navController,
-                                onEvent = viewModal::onEvent
+                                onEvent = viewModel::onEvent
                             )
                         }
                     }
