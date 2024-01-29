@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.androidjetpackcomposepracticeprojects.data.local.Note
 import com.example.androidjetpackcomposepracticeprojects.data.local.NoteDao
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
@@ -18,6 +19,8 @@ class NotesViewModel(
 ) : ViewModel() {
 
     private val isSortedByDateAdded = MutableStateFlow(true)
+
+    @OptIn(ExperimentalCoroutinesApi::class)
     private var notes = isSortedByDateAdded.flatMapLatest { sort ->
         if (sort) {
             dao.getNoteOrderdByDateAdded()
@@ -27,9 +30,10 @@ class NotesViewModel(
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), emptyList())
 
     val _state = MutableStateFlow(NoteState())
-    val state = combine(_state, isSortedByDateAdded, notes) { state, isSortedByDateAdded, notes ->
-        state.copy(notes = notes)
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), NoteState())
+    val state =
+        combine(_state, isSortedByDateAdded, notes) { state, isSortedByDateAdded, notes ->
+            state.copy(notes = notes)
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), NoteState())
 
     fun onEvent(event: NoteEvent) {
         when (event) {
