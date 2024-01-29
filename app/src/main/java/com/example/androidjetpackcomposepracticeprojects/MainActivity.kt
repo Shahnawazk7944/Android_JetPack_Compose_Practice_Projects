@@ -88,7 +88,7 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(
-                            route = "AddNoteScreen"
+                            route = "AddNotesScreen"
 
                         ) {
                             AddNotesScreen(
