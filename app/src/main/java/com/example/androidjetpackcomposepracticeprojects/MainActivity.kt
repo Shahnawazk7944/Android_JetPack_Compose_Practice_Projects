@@ -72,10 +72,10 @@ class MainActivity : ComponentActivity() {
                 // ------------------ViewModel With NoteApp Practice code-------------
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    //color = MaterialTheme.colorScheme.background
                 ) {
                     val state by viewModal.state.collectAsState()
-                    val navController = rememberNavController()
+                    navController = rememberNavController()
 
                     NavHost(navController = navController, startDestination = "NotesScreen") {
                         composable(
