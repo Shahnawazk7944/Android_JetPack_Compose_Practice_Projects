@@ -67,7 +67,7 @@ fun NoteItem(
             Icon(
                 imageVector = Icons.Rounded.Delete,
                 contentDescription = "Delete Note",
-                modifier = Modifier.size(35.dp),
+                modifier = Modifier.size(25.dp),
                 tint = MaterialTheme.colorScheme.onPrimaryContainer
             )
         }
