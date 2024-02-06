@@ -1,4 +1,4 @@
-# Project Name:
+# Exploring Kotlin & Jetpack for modern Android apps: 100 Day Challenge:
 
 ### Description:
 
