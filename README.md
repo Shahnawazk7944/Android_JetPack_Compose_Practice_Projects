@@ -1,3 +1,36 @@
+# Project Name:
+
+### Description:
+
+This document outlines my 100-day exploration of Kotlin and Jetpack Compose, where I'll build various practice projects to master essential skills and techniques. Each project will focus on specific areas, allowing me to track my progress and document my learning journey.
+
+### Key Features:
+
+- **State Management:** Utilizing Compose State and ViewModel for data handling and UI updates.
+- **Navigation:** Implementing seamless navigation flows with Navigation Compose.
+- **Animation:** Adding engaging and functional animations using Jetpack Compose Animation.
+- **UI Development:** Leveraging various Jetpack Compose components like TextFields, Buttons, ListViews, and Custom components to build dynamic and intuitive UIs.
+- **Material Design:** Adhering to Material Design principles for visually appealing and consistent user experiences.
+- **MVVM Architecture:** Structuring projects efficiently using the Model-View-ViewModel architecture.
+- **Data Acquisition:** Integrating with the Retrofit library for API calls and data fetching.
+- **Image Loading:** Optimizing image loading and display using the Coil image library.
+- **Data Storage:** Persisting data locally with the Room database.
+
+### Technical Details:
+
+- Each project will have a separate section within this document.
+- I'll describe the project's main objective, skills practiced, key features, technical details, and learnings.
+- Over time, this document will become a comprehensive record of my Kotlin and Jetpack Compose journey.
+
+### Learning Points:
+
+- Develop proficiency in various Kotlin and Jetpack Compose fundamentals.
+- Build a collection of diverse and functional practice projects showcasing my skills.
+- Gain valuable experience in software development best practices and problem-solving.
+- Document my learning curve and reflect on my progress throughout the 100 days.
+
+### Screenshots/Visuals:
+
 <p align="center"><img src="app/src/main/res/drawable/text_field_screenshot.png" width="220" height="400"></p>
 <p align="center"><img src="app/src/main/res/drawable/google_button_login.gif" width="220" height="400" ></p>
 <p align="center"><img src="app/src/main/res/drawable/coil.gif" width="220" height="400" ></p>
