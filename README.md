@@ -21,11 +21,11 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 - Each project will have a separate section within this document.
 - I'll describe the project's main objective, skills practiced, key features, technical details, and learnings.
 - Over time, this document will become a comprehensive record of my Kotlin and Jetpack Compose journey.
-- Programming Language: Kotlin
-- UI Framework: Jetpack Compose
-- Architecture: MVVM
-- Data Storage: Room Database
-- Additional Libraries: Retrofit and Continued...
+- **Programming Language:** Kotlin
+- **UI Framework:** Jetpack Compose
+- **Architecture:** MVVM
+- **Data Storage:** Room Database
+- **Additional Libraries:** Retrofit and Continued...
 
 ### Learning Points:
 
