@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.androidjetpackcomposepracticeprojects.models.ViewModal
+import com.example.androidjetpackcomposepracticeprojects.ui.SplashScreen
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_31
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_32
@@ -36,27 +37,28 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AndroidJetPackComposePracticeProjectsTheme {
-
-                // A surface container using the 'background' color from the theme
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(gradient_31),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-//                    navController = rememberNavController()
-//                    NavGraph(navController = navController)
-
-                    var text by remember {
-                        mutableStateOf("")
-                    }
-                    val updatedText = viewModal.newText.collectAsState()
-                    Text(text = updatedText.value, fontSize = 25.sp, color = gradient_32)
-                    Spacer(modifier = Modifier.height(30.dp))
-                    TextField(value = updatedText.value, onValueChange = {
-                        viewModal.changeText(it)
-                    })
+                SplashScreen()
+//
+//                // A surface container using the 'background' color from the theme
+//                Column(
+//                    modifier = Modifier
+//                        .fillMaxSize()
+//                        .background(gradient_31),
+//                    verticalArrangement = Arrangement.Center,
+//                    horizontalAlignment = Alignment.CenterHorizontally
+//                ) {
+////                    navController = rememberNavController()
+////                    NavGraph(navController = navController)
+//
+//                    var text by remember {
+//                        mutableStateOf("")
+//                    }
+//                    val updatedText = viewModal.newText.collectAsState()
+//                    Text(text = updatedText.value, fontSize = 25.sp, color = gradient_32)
+//                    Spacer(modifier = Modifier.height(30.dp))
+//                    TextField(value = updatedText.value, onValueChange = {
+//                        viewModal.changeText(it)
+//                    })
 
 // will start tomorrow insA
 // will start tomorrow insA
@@ -86,7 +88,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
+
 
 @Preview(showBackground = true)
 @Composable
