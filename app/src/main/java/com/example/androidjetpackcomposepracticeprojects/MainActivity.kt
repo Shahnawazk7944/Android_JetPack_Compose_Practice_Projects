@@ -17,7 +17,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AndroidJetPackComposePracticeProjectsTheme {
-                SplashScreen()
+                Indicator()
+                //SplashScreen()
 //
 //                // A surface container using the 'background' color from the theme
 //                Column(

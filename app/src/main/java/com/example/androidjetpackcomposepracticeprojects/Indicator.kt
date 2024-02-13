@@ -33,7 +33,7 @@ import com.example.androidjetpackcomposepracticeprojects.ui.theme.ubuntu
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun Indicator(navController: NavHostController) {
+fun Indicator() {
 
     val welcomeDescription = listOf(
         "Welcome to Zeru, a great friend to chat with you",
@@ -119,5 +119,5 @@ fun IndicatorDot(isSelected: Boolean) {
 @Preview(showBackground = true)
 @Composable
 fun WelcomePreview() {
-    Indicator(navController = rememberNavController())
+    Indicator()
 }
