@@ -65,13 +65,15 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <p align="center"><img src="https://github.com/Shahnawazk7944/Simple_Age_Calculator/assets/74444644/8b8467d1-0d7b-48e8-835e-0296e753829b" width="220" height="400" ></p>
 <p align="center"><img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/dea66f7a-b7d4-4a7d-b60f-d9e54b964eaa" width="220" height="400" ></p>
 <p align="center"><img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/6fce1e5e-6c3c-4dcb-b65b-3d6fc05af7d6" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
-<p align="center"><img src="" width="220" height="400" ></p>
+<div align="center"><video src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/1efcbf86-a22e-48fb-b88e-ec5c9045e060" height="400" ></video></div>
+<p align="center"><img src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/691835ab-a984-4833-9646-107fa5e64114" width="220" height="400" ></p>
+<p align="center"><img src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/6547f1cf-8e22-407a-9e0a-56f7c0fd38a4" width="220" height="400" ></p>
+<p align="center"><img src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/62d7dcb1-5362-49eb-ae70-c82f5962fd25" width="220" height="400" ></p>
+<p align="center"><img src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/d78a3c5d-a94b-4bad-bf9b-cdccf12dc48a" width="220" height="400" ></p>
+<p align="center"><img src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/d42e0a52-119b-4608-a683-f62b10e80791" width="220" height="400" ></p>
+<p align="center"><img src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/f3ff974a-0a85-4041-bc6f-59635f40daaf" width="220" height="400" ></p>
+
+
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
