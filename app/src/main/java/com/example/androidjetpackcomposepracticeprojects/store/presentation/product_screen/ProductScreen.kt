@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.ProductCard
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.LoadingDialog
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.MyTopAppBar
 
@@ -28,11 +29,11 @@ fun ProductContent(
         }
     ) {
         LazyVerticalStaggeredGrid(
-            modifier= Modifier.padding(top = it.calculateTopPadding()),
+            modifier = Modifier.padding(top = it.calculateTopPadding()),
             columns = StaggeredGridCells.Fixed(2),
-            ){
-            items(state.product){product ->
-
+        ) {
+            items(state.product) { product ->
+                ProductCard(product = product)
             }
         }
     }
