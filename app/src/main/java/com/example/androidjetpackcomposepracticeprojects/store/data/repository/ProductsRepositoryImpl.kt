@@ -8,11 +8,11 @@ import com.example.androidjetpackcomposepracticeprojects.store.data.remote.Produ
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.NetworkError
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Product
 import com.example.androidjetpackcomposepracticeprojects.store.domain.repository.ProductsRepository
+import javax.inject.Inject
 
-class ProductsRepositoryImpl constructor(
+class ProductsRepositoryImpl @Inject constructor(
     private val productApi: ProductApi
 ) : ProductsRepository {
-    @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     override suspend fun getProduct(): Either<NetworkError, List<Product>> {
         return Either.catch {
             productApi.getProducts()
