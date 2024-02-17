@@ -1,5 +1,7 @@
 package com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
@@ -9,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.ProductCard
@@ -33,10 +36,13 @@ fun ProductContent(
         topBar = {
             MyTopAppBar(title = "Products")
         }
-    ) {
+    ) { padding ->
         LazyVerticalStaggeredGrid(
-            modifier = Modifier.padding(top = it.calculateTopPadding()),
+            modifier = Modifier.padding(padding),
             columns = StaggeredGridCells.Fixed(2),
+            contentPadding = PaddingValues(5.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+            verticalItemSpacing = 5.dp
         ) {
             items(state.product) { product ->
                 ProductCard(product = product)
