@@ -13,11 +13,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
@@ -38,20 +37,16 @@ fun ProductCard(
     modifier: Modifier = Modifier,
     product: Product
 ) {
-    Card(
-        modifier = modifier,
-        shape = RoundedCornerShape(10.dp),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 2.dp
-        ),
-        colors = CardDefaults.cardColors(
-            contentColor = Color.Black,
-            containerColor = Color.White
-        )
+    Box(
+        modifier = modifier
+            .background(Color.White)
+            .clip(RoundedCornerShape(20.dp)),
 
+//            .shadow(elevation = 2.dp,
+//                shape = RoundedCornerShape(2.dp))
     ) {
         Column(
-            modifier = Modifier.padding(5.dp)
+            modifier = Modifier.padding(0.dp)
         ) {
             AsyncImage(
                 model = product.image,
@@ -65,9 +60,9 @@ fun ProductCard(
             Spacer(modifier = Modifier.height(5.dp))
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     //.height(150.dp)
-                    .padding(5.dp)
+
                     .background(Color(0x407D7986))
             ) {
                 Column(
@@ -119,7 +114,7 @@ fun ProductCard(
                             fontFamily = ubuntu,
                             fontWeight = FontWeight.Medium,
                             fontSize = 14.sp,
-                            color = gradient_32
+                            color = Color(0xFF0A533F)
                         )
 
                     }
