@@ -73,8 +73,9 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <p align="center"><img src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/d42e0a52-119b-4608-a683-f62b10e80791" width="220" height="400" ></p>
 <p align="center"><img src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/f3ff974a-0a85-4041-bc6f-59635f40daaf" width="220" height="400" ></p>
 <div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/fbd31533-233b-4a57-96d7-9310a8f14d34" height="400" ></video></div>
+<p align="center"><img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/d46b60dc-6451-42a2-8ae4-206c3ddb347c" width="220" height="400" ></p>
 
-<p align="center"><img src="" width="220" height="400" ></p>
+
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
