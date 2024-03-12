@@ -1,7 +1,7 @@
-package com.example.androidjetpackcomposepracticeprojects.store.di
+package com.example.androidjetpackcomposepracticeprojects.quote.di
 
-import com.example.androidjetpackcomposepracticeprojects.store.data.remote.ProductApi
-import com.example.androidjetpackcomposepracticeprojects.util.Constant.BASE_URL
+import com.example.androidjetpackcomposepracticeprojects.quote.data.remote.QuotesApi
+import com.example.androidjetpackcomposepracticeprojects.util.Constant.QUOTES_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,12 +16,12 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideProductApi(): ProductApi {
+    fun provideQuotesApi(): QuotesApi {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(QUOTES_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ProductApi::class.java)
+            .create(QuotesApi::class.java)
 
     }
 }

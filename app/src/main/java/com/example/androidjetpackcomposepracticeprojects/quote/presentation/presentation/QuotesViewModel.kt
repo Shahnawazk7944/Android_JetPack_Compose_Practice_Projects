@@ -1,8 +1,8 @@
-package com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen
+package com.example.androidjetpackcomposepracticeprojects.quote.presentation.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidjetpackcomposepracticeprojects.quote.domain.repository.ProductsRepository
+import com.example.androidjetpackcomposepracticeprojects.quote.domain.repository.QuotesRepository
 import com.example.androidjetpackcomposepracticeprojects.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,27 +12,27 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProductsViewModel @Inject constructor(
-    private val productsRepository: ProductsRepository
+class QuotesViewModel @Inject constructor(
+    private val quotesRepository: QuotesRepository
 ) : ViewModel() {
     private val _state =
-        MutableStateFlow(ProductScreenState())
+        MutableStateFlow(QuotesScreenState())
     val state = _state.asStateFlow()
 
     init {
-        getProducts()
+        getQuotes()
     }
 
-    fun getProducts() {
+    fun getQuotes() {
         viewModelScope.launch {
             _state.update {
                 it.copy(isLoading = true)
             }
-            productsRepository.getProduct()
-                .onRight { products ->
+            quotesRepository.getQuotes()
+                .onRight { quotes ->
                     _state.update {
                         it.copy(
-                            product = products
+                            quotes = quotes
                         )
                     }
                 }

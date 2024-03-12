@@ -1,7 +1,7 @@
 package com.example.androidjetpackcomposepracticeprojects.store.data.mapper
 
-import com.example.androidjetpackcomposepracticeprojects.store.domain.model.ApiError
-import com.example.androidjetpackcomposepracticeprojects.store.domain.model.NetworkError
+import com.example.androidjetpackcomposepracticeprojects.quote.domain.model.ApiError
+import com.example.androidjetpackcomposepracticeprojects.quote.domain.model.NetworkError
 import java.io.IOException
 import retrofit2.HttpException
 
