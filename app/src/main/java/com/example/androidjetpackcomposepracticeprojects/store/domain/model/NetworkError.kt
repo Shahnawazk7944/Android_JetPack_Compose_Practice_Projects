@@ -1,7 +1,7 @@
 package com.example.androidjetpackcomposepracticeprojects.store.domain.model
 
 data class NetworkError(
-    val error: ApiError,
+    val error: com.example.androidjetpackcomposepracticeprojects.quote.domain.model.ApiError,
     val t: Throwable? = null
 )
 enum class ApiError(val message:String){

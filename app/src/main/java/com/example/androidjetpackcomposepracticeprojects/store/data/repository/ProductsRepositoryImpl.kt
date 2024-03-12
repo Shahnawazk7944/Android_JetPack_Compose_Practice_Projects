@@ -1,13 +1,11 @@
 package com.example.androidjetpackcomposepracticeprojects.store.data.repository
 
-import android.os.Build
-import androidx.annotation.RequiresExtension
 import arrow.core.Either
-import com.example.androidjetpackcomposepracticeprojects.store.data.mapper.toNetworkError
-import com.example.androidjetpackcomposepracticeprojects.store.data.remote.ProductApi
-import com.example.androidjetpackcomposepracticeprojects.store.domain.model.NetworkError
+import com.example.androidjetpackcomposepracticeprojects.quote.data.mapper.toNetworkError
+import com.example.androidjetpackcomposepracticeprojects.quote.data.remote.ProductApi
+import com.example.androidjetpackcomposepracticeprojects.quote.domain.model.NetworkError
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Product
-import com.example.androidjetpackcomposepracticeprojects.store.domain.repository.ProductsRepository
+import com.example.androidjetpackcomposepracticeprojects.quote.domain.repository.ProductsRepository
 import javax.inject.Inject
 
 class ProductsRepositoryImpl @Inject constructor(

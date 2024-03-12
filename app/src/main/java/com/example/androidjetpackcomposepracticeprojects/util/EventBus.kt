@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.store.util
+package com.example.androidjetpackcomposepracticeprojects.util
 
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow

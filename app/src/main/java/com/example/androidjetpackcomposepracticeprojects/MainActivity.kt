@@ -30,8 +30,8 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavHostController
 import com.example.androidjetpackcomposepracticeprojects.models.ViewModal
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.ProductScreen
-import com.example.androidjetpackcomposepracticeprojects.store.util.Event
-import com.example.androidjetpackcomposepracticeprojects.store.util.EventBus
+import com.example.androidjetpackcomposepracticeprojects.util.Event
+import com.example.androidjetpackcomposepracticeprojects.util.EventBus
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
