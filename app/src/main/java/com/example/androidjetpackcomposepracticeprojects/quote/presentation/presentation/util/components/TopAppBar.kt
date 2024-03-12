@@ -31,7 +31,7 @@ fun QuotesTopAppBar(
                 Icon(
                     painter = appBarLeadingIcon,
                     contentDescription = "back Icon",
-                    tint = Color.Unspecified,
+                    tint = Color.White,
                     modifier = Modifier.size(18.dp),
                 )
             }

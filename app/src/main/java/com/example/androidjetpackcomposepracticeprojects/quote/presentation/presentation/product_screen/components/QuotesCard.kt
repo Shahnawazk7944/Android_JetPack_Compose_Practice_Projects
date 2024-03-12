@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,12 +19,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androidjetpackcomposepracticeprojects.R
-import com.example.androidjetpackcomposepracticeprojects.quote.domain.model.Quote
 import com.example.androidjetpackcomposepracticeprojects.quote.domain.model.Quotes
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.PaleYellow
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.rubik
 
 @Composable
@@ -35,6 +35,7 @@ fun QuotesCard(
 ) {
     Column(
         modifier = Modifier
+            .clip(RoundedCornerShape(15.dp))
             .background(Color.Black)
             .padding(0.dp),
         //.fillMaxSize()
@@ -43,25 +44,27 @@ fun QuotesCard(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .fillMaxWidth()
-                .height(250.dp).padding(bottom = 20.dp),
+                .height(300.dp)
+                .padding(bottom = 20.dp),
             //.background(Color(0x407D7986)),
             contentAlignment = Alignment.Center,
 
             ) {
             Text(
-                text = quotes.quote.quote.replaceFirstChar { it.uppercase() },
+                text = quotes.q.replaceFirstChar { it.uppercase() },
                 fontFamily = rubik,
                 fontWeight = FontWeight.Bold,
-                fontSize = 20.sp,
+                fontSize = 16.sp,
                 color = Color.White,
-                modifier = Modifier.align(Alignment.Center)
+                textAlign = TextAlign.Center,
+                modifier = Modifier.align(Alignment.Center).padding(horizontal = 4.dp)
             )
             Text(
-                text = quotes.quote.author.replaceFirstChar { it.uppercase() },
+                text = quotes.a.replaceFirstChar { it.uppercase() },
                 fontFamily = rubik,
                 fontWeight = FontWeight.Normal,
                 fontSize = 14.sp,
-                color = Color.Gray,
+                color = PaleYellow,
                 modifier = Modifier.align(Alignment.BottomCenter)
             )
         }
@@ -141,11 +144,10 @@ fun QuotesCard(
 fun ProductContentPreview() {
     QuotesCard(
         quotes = Quotes(
-            Quote(
-                id = 1,
-                quote = "dshjhdjs kljfdksfj dklfjkldsf",
-                author = "Green Card",
-            )
-        )
+            q = "dshjhdjs kljfdksfj dklfjkldsf",
+            a = "Green Card",
+            c = "dshjhdjs kljfdksfj dklfjkldsf",
+            h = "Green Card"
+        ),
     )
 }

@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components
+package com.example.androidjetpackcomposepracticeprojects.quote.presentation.presentation.util.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -28,7 +28,7 @@ fun QuotesLoading(isLoading: Boolean) {
                 contentAlignment = Alignment.Center
             ){
                 CircularProgressIndicator(
-                    modifier = Modifier.size(30.dp),
+                    modifier = Modifier.size(50.dp),
                     color = MaterialTheme.colorScheme.primary
                 )
             }

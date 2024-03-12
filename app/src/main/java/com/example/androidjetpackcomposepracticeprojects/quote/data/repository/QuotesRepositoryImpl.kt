@@ -6,12 +6,14 @@ import com.example.androidjetpackcomposepracticeprojects.quote.data.remote.Quote
 import com.example.androidjetpackcomposepracticeprojects.quote.domain.model.Quotes
 import com.example.androidjetpackcomposepracticeprojects.quote.domain.model.QuotesApiNetworkError
 import com.example.androidjetpackcomposepracticeprojects.quote.domain.repository.QuotesRepository
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class QuotesRepositoryImpl @Inject constructor(
     private val quotesApi: QuotesApi
 ) : QuotesRepository {
     override suspend fun getQuotes(): Either<QuotesApiNetworkError, List<Quotes>> {
+        delay(3000)
         return Either.catch {
             quotesApi.getQuotes()
         }.mapLeft { it.toQuotesNetworkError() }

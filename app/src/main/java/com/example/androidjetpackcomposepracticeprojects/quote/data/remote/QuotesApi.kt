@@ -4,6 +4,6 @@ import com.example.androidjetpackcomposepracticeprojects.quote.domain.model.Quot
 import retrofit2.http.GET
 
 interface QuotesApi {
-    @GET("quotes")
+    @GET("api/quotes")
     suspend fun getQuotes(): List<Quotes>
 }
