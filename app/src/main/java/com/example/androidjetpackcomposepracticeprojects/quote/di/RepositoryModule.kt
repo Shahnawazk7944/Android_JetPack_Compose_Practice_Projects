@@ -1,7 +1,7 @@
 package com.example.androidjetpackcomposepracticeprojects.quote.di
 
-import com.example.androidjetpackcomposepracticeprojects.quote.data.repository.ProductsRepositoryImpl
-import com.example.androidjetpackcomposepracticeprojects.quote.domain.repository.ProductsRepository
+import com.example.androidjetpackcomposepracticeprojects.quote.data.repository.QuotesRepositoryImpl
+import com.example.androidjetpackcomposepracticeprojects.quote.domain.repository.QuotesRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,5 +13,5 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
     @Binds
     @Singleton
-    abstract fun bindProductRepository(impl: ProductsRepositoryImpl): ProductsRepository
+    abstract fun bindProductRepository(impl: QuotesRepositoryImpl): QuotesRepository
 }
