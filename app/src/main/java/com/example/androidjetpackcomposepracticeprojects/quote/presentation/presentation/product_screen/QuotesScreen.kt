@@ -24,7 +24,7 @@ import com.example.androidjetpackcomposepracticeprojects.quote.presentation.pres
 import com.example.androidjetpackcomposepracticeprojects.quote.presentation.presentation.QuotesViewModel
 import com.example.androidjetpackcomposepracticeprojects.quote.presentation.presentation.util.components.QuotesTopAppBar
 import com.example.androidjetpackcomposepracticeprojects.quote.presentation.presentation.product_screen.components.QuotesCard
-import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.QuotesLoading
+import com.example.androidjetpackcomposepracticeprojects.quote.presentation.presentation.util.components.QuotesLoading
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.ubuntu
 
 @Composable
@@ -39,39 +39,43 @@ internal fun QuotesScreen(
 fun QuotesContent(
     state: QuotesScreenState
 ) {
+    if (state.isLoading){
+        QuotesLoading(true)
+    }
+    else{
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            topBar = {
+                QuotesTopAppBar(
+                    title = {
+                        Text(
+                            "Quotes",
+                            fontFamily = ubuntu,
+                            fontSize = 25.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onBackground,
+                        )
+                    },
+                    appBarLeadingIcon = painterResource(R.drawable.menu),
+                    onClick = {
 
-    QuotesLoading(isLoading = state.isLoading)
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        topBar = {
-            QuotesTopAppBar(
-                title = {
-                    Text(
-                        "Quotes",
-                        fontFamily = ubuntu,
-                        fontSize = 25.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onBackground,
-                    )
-                },
-                appBarLeadingIcon = painterResource(R.drawable.menu),
-                onClick = {
-
-                },
-                action = {}
-            )
-        }
-    ) { padding ->
-        LazyVerticalStaggeredGrid(
-            modifier = Modifier.padding(padding),
-            columns = StaggeredGridCells.Fixed(2),
-            contentPadding = PaddingValues(5.dp),
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-            verticalItemSpacing = 5.dp
-        ) {
-            items(state.quotes) { quotes ->
-                QuotesCard(quotes = quotes)
+                    },
+                    action = {}
+                )
+            }
+        ) { padding ->
+            LazyVerticalStaggeredGrid(
+                modifier = Modifier.padding(padding),
+                columns = StaggeredGridCells.Fixed(2),
+                contentPadding = PaddingValues(5.dp),
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                verticalItemSpacing = 5.dp
+            ) {
+                items(state.quotes) { quotes ->
+                    QuotesCard(quotes = quotes)
+                }
             }
         }
     }
+
 }
