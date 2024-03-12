@@ -82,7 +82,10 @@ class MainActivity : ComponentActivity() {
                     }
                     Scaffold(
                         bottomBar = {
-                            NavigationBar {
+                            NavigationBar(
+
+                            ) {
+
                                 NavigationBarItem(
                                     selected = selectedItem == "home",
                                     onClick = {
