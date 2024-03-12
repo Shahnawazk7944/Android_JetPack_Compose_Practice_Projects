@@ -2,7 +2,6 @@ package com.example.androidjetpackcomposepracticeprojects
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -21,17 +19,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavHostController
 import com.example.androidjetpackcomposepracticeprojects.models.ViewModal
-import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.ProductScreen
-import com.example.androidjetpackcomposepracticeprojects.util.Event
-import com.example.androidjetpackcomposepracticeprojects.util.EventBus
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -66,11 +58,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background,
                 ) {
                     var checkedState by remember { mutableStateOf(false) }
-                    Column (
+                    Column(
                         Modifier.fillMaxSize(),
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
-                    ){
+                    ) {
                         RoundedCornerCheckbox(
                             label = "Remember Me",
                             labelSize = 25.sp,
