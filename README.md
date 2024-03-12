@@ -75,11 +75,17 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/fbd31533-233b-4a57-96d7-9310a8f14d34" height="400" ></video></div>
 <p align="center"><img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/d46b60dc-6451-42a2-8ae4-206c3ddb347c" width="220" height="400" ></p>
 
+### SplitifyTask:
+<div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/3c3e7814-0958-4adf-be7e-0696645fd4aa" height="400" ></video></div>
 
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
+
+
+
+
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
 <p align="center"><img src="" width="220" height="400" ></p>
