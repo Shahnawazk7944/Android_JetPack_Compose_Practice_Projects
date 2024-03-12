@@ -1,15 +1,18 @@
 package com.example.androidjetpackcomposepracticeprojects.models
 
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.androidjetpackcomposepracticeprojects.quote.presentation.presentation.product_screen.QuotesProfileScreen
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.QuotesScreen
+import kotlinx.coroutines.flow.MutableStateFlow
 
 @Composable
 fun NavGraph(
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     NavHost(navController = navController, startDestination = Screen.QuotesHomeScreen.route) {
 //        composable(route= Screen.Home.route){
@@ -29,7 +32,9 @@ fun NavGraph(
         }
         composable(
             route = Screen.QuotesProfileScreen.route) {
-            QuotesProfileScreen(navController = navController)
+            QuotesProfileScreen(navController = navController ,
+
+            )
         }
 
     }
