@@ -60,8 +60,7 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <p align="center">
 <img src="app/src/main/res/drawable/navigation1.gif" width="220" height="400" >&nbsp;&nbsp;
 <img src="app/src/main/res/drawable/view_modal.gif" width="220" height="400" >&nbsp;&nbsp;
-<div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/c190645a-4135-4e83-b69b-ab9e6bb4e7cf" height="400" ></video></div>
-</p>
+<div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/c190645a-4135-4e83-b69b-ab9e6bb4e7cf" height="400" ></video></div></p>
 
 
 <div align="center">
@@ -188,7 +187,8 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
   <img src="https://github.com/Shahnawazk7944/AI_Chat_Application_ZERU_With_MVVM_Retrofit_ROOM_GoogleGeminiAI/assets/74444644/57143508-dff3-4879-b560-6ea71e20470e" width="220" height="400" >
 </p>
 
-
+### MaghTask:
+<div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/5cf881d0-32c3-4af2-bc23-598f086ed2bf" height="400" ></video></div>
 
 
 <!-- Practice stuff-->
@@ -198,8 +198,7 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <p align="center">
 <p align="center"><img src="" width="220" height="400" ></p>&nbsp;&nbsp;
 <p align="center"><img src="" width="220" height="400" ></p>&nbsp;&nbsp;
-<p align="center"><img src="" width="220" height="400" ></p>
-</p>
+<p align="center"><img src="" width="220" height="400" ></p></p>
 <div align="center"><video src="" height="400" ></video></div>
 
 
