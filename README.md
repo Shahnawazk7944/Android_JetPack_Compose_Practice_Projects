@@ -36,21 +36,84 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 
 ### Screenshots/Visuals:
 
-<p align="center"><img src="app/src/main/res/drawable/text_field_screenshot.png" width="220" height="400"></p>
-<p align="center"><img src="app/src/main/res/drawable/google_button_login.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/coil.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/password_field.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/gradient_button.png" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/lazy_column.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/credit_card_.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/internet_usage.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/state1.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/state2.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/state3.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/state4.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/navigation1.gif" width="220" height="400" ></p>
-<p align="center"><img src="app/src/main/res/drawable/view_modal.gif" width="220" height="400" ></p>
-<div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/c190645a-4135-4e83-b69b-ab9e6bb4e7cf" height="400" ></video></div>
+<p align="center">
+<img src="app/src/main/res/drawable/text_field_screenshot.png" width="220" height="400">&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/google_button_login.gif" width="220" height="400" >&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/coil.gif" width="220" height="400" >
+</p>
+
+<p align="center">
+<img src="app/src/main/res/drawable/password_field.gif" width="220" height="400" >&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/gradient_button.png" width="220" height="400" >&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/lazy_column.gif" width="220" height="400" ></p>
+
+<p align="center">
+<img src="app/src/main/res/drawable/credit_card_.gif" width="220" height="400" >&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/internet_usage.gif" width="220" height="400" >&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/state1.gif" width="220" height="400" ></p>
+
+<p align="center">
+<img src="app/src/main/res/drawable/state2.gif" width="220" height="400" >&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/state3.gif" width="220" height="400" >&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/state4.gif" width="220" height="400" ></p>
+
+<p align="center">
+<img src="app/src/main/res/drawable/navigation1.gif" width="220" height="400" >&nbsp;&nbsp;
+<img src="app/src/main/res/drawable/view_modal.gif" width="220" height="400" >&nbsp;&nbsp;
+<video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/c190645a-4135-4e83-b69b-ab9e6bb4e7cf" height="400" >
+</p>
+
+<p align="center">
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+
+</p>
+
+<p align="center">
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+
+</p>
+
+<p align="center">
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+
+</p>
+
+<p align="center">
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+
+</p>
+
+<p align="center">
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+
+</p>
+
+<p align="center">
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+
+</p>
+
+<p align="center">
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+
+</p>
+
+<p align="center">
+&nbsp;&nbsp;
+&nbsp;&nbsp;
+
+</p>
+
+
+
+<div align="center"></video></div>
 <div align="center">
 <video src="https://github.com/Shahnawazk7944/Simple_Age_Calculator/assets/74444644/9f800246-d1f4-43fe-9a06-35b4ac148606" height="400" ></video>
 </div>
