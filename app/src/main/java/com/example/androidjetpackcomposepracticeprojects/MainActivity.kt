@@ -1,14 +1,10 @@
 package com.example.androidjetpackcomposepracticeprojects
 
 import android.annotation.SuppressLint
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -32,23 +28,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.androidjetpackcomposepracticeprojects.models.NavGraph
 import com.example.androidjetpackcomposepracticeprojects.models.Screen
 import com.example.androidjetpackcomposepracticeprojects.models.ViewModal
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.StoreNavGraph
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.StoreScreen
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
 import com.example.androidjetpackcomposepracticeprojects.util.Event
 import com.example.androidjetpackcomposepracticeprojects.util.EventBus
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.update
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     //private lateinit var navController: NavHostController
     private val viewModal by viewModels<ViewModal>()
-    @SuppressLint("ShowToast", "UnusedMaterial3ScaffoldPaddingParameter",
+
+    @SuppressLint(
+        "ShowToast", "UnusedMaterial3ScaffoldPaddingParameter",
         "StateFlowValueCalledInComposition"
     )
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,24 +71,6 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-//                    var checkedState by remember { mutableStateOf(false) }
-//                    Column(
-//                        Modifier.fillMaxSize(),
-//                        horizontalAlignment = Alignment.CenterHorizontally,
-//                        verticalArrangement = Arrangement.Center
-//                    ) {
-//                        RoundedCornerCheckbox(
-//                            label = "Remember Me",
-//                            labelSize = 25.sp,
-//                            labelColor = Color.Black,
-//                            checkedColor = Color(0xFF00CDBD),
-//                            uncheckedColor = Color(0xFFf0ffff),
-//                            isChecked = checkedState,
-//                            size = 40f,
-//                            onValueChange = { checkedState = it },
-//                            modifier = Modifier.padding(10.dp)
-//                        )
-//                    }
                     val navController = rememberNavController()
                     var selectedItem by rememberSaveable {
                         mutableStateOf("home")
@@ -104,13 +82,15 @@ class MainActivity : ComponentActivity() {
                                     selected = selectedItem == "home",
                                     onClick = {
                                         selectedItem = "home"
-                                        navController.navigate(Screen.QuotesHomeScreen.route)
+                                        navController.navigate(StoreScreen.StoreHomeScreen.route)
                                     },
                                     icon = {
                                         Icon(
                                             painter = painterResource(R.drawable.home),
                                             contentDescription = null,
-                                            modifier = Modifier.size(35.dp).padding(4.dp)
+                                            modifier = Modifier
+                                                .size(35.dp)
+                                                .padding(4.dp)
                                         )
                                     })
 
@@ -118,13 +98,15 @@ class MainActivity : ComponentActivity() {
                                     selected = selectedItem == "profile",
                                     onClick = {
                                         selectedItem = "profile"
-                                        navController.navigate(Screen.QuotesProfileScreen.route)
+                                        navController.navigate(StoreScreen.StoreProfileScreen.route)
                                     },
                                     icon = {
                                         Icon(
                                             painter = painterResource(R.drawable.profile),
                                             contentDescription = null,
-                                            modifier = Modifier.size(35.dp).padding(4.dp)
+                                            modifier = Modifier
+                                                .size(35.dp)
+                                                .padding(4.dp)
                                         )
                                     })
 
@@ -132,8 +114,9 @@ class MainActivity : ComponentActivity() {
 
                         }
                     ) {
-                        NavGraph(navController = navController,
-                            )
+                        StoreNavGraph(
+                            navController = navController,
+                        )
                     }
 
                     //QuotesScreen()
