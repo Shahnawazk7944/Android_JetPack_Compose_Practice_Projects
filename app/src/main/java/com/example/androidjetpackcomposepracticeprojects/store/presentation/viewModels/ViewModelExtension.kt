@@ -1,4 +1,4 @@
-package com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen
+package com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

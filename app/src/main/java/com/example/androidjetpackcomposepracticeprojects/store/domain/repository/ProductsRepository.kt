@@ -9,5 +9,5 @@ interface ProductsRepository {
 
 }
 interface ProductDetailsRepository {
-    suspend fun getProductDetails():Either<NetworkError, Product>
+    suspend fun getProductDetails(productId: String):Either<NetworkError, Product>
 }
