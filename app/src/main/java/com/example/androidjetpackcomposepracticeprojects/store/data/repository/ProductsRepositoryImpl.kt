@@ -8,6 +8,10 @@ import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Netw
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Product
 import com.example.androidjetpackcomposepracticeprojects.store.domain.repository.ProductDetailsRepository
 import com.example.androidjetpackcomposepracticeprojects.store.domain.repository.ProductsRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class ProductsRepositoryImpl @Inject constructor(
@@ -25,11 +29,17 @@ class ProductsRepositoryImpl @Inject constructor(
 class ProductDetailsRepositoryImpl @Inject constructor(
     private val productDetailApi: ProductDetailApi
 ) : ProductDetailsRepository {
-    override suspend fun getProductDetails(): Either<NetworkError, Product> {
-        // delay(3000)
-        return Either.catch {
-            productDetailApi.getProductDetails()
-        }.mapLeft { it.toNetworkError() }
+    override suspend fun getProductDetails(productId: String): Either<NetworkError, Product> {
+        delay(5000)
+        return try {
+            val product = withContext(Dispatchers.IO) {
+                async { productDetailApi.getProductDetails(productId = productId) }.await()
+            }
+            return Either.Right(product)
+        } catch (e: Exception) {
+            Either.Left(e.toNetworkError())
+        }
+
 
     }
 

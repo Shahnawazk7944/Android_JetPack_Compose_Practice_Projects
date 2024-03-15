@@ -26,6 +26,8 @@ import com.example.androidjetpackcomposepracticeprojects.store.presentation.Stor
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.ProductCard
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.LoadingDialog
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.StoreTopAppBar
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductScreenState
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductsViewModel
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.ubuntu
 
 @Composable
