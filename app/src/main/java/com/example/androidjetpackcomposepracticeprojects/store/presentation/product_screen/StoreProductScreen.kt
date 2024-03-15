@@ -1,6 +1,8 @@
 package com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -77,8 +79,8 @@ fun ProductContent(
 
             items(state.product.size) { index ->
                 val product = state.product[index]
-                Card(onClick = {
-                    navController.navigate(StoreScreen.StoreProductDetails.passToProductDetailsScree(index)) // Navigate with index
+                Box(Modifier.clickable {
+                    navController.navigate(StoreScreen.StoreProductDetails.passToProductDetailsScree(index+1)) // Navigate with index
                 }) {
                     ProductCard(product = product)
                 }
