@@ -1,14 +1,11 @@
 package com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import arrow.core.Either
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Product
 import com.example.androidjetpackcomposepracticeprojects.store.domain.repository.ProductDetailsRepository
 import com.example.androidjetpackcomposepracticeprojects.store.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -24,11 +21,11 @@ class StoreProductDetailsViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
     fun getProductDetails(productId: String) {
-        _state.update {
-            it.copy(isLoading = true)
-        }
-        viewModelScope.launch {
 
+        viewModelScope.launch {
+            _state.update {
+                it.copy(isLoading = true)
+            }
             productDetailsRepository.getProductDetails(productId = productId)
                 .onRight { productDetails ->
                     _state.update {
@@ -46,11 +43,9 @@ class StoreProductDetailsViewModel @Inject constructor(
                     sendEvent(event = Event.Toast(error.error.message))
                 }
 
-
-        }
-
-        _state.update {
-            it.copy(isLoading = false)
+            _state.update {
+                it.copy(isLoading = false)
+            }
         }
     }
 }
