@@ -1,8 +1,10 @@
 package com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Product
+import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Rating
 import com.example.androidjetpackcomposepracticeprojects.store.domain.repository.ProductDetailsRepository
 import com.example.androidjetpackcomposepracticeprojects.store.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,6 +28,8 @@ class StoreProductDetailsViewModel @Inject constructor(
             _state.update {
                 it.copy(isLoading = true)
             }
+            Log.d("check in VM", "")
+
             productDetailsRepository.getProductDetails(productId = productId)
                 .onRight { productDetails ->
                     _state.update {
@@ -42,6 +46,7 @@ class StoreProductDetailsViewModel @Inject constructor(
                     }
                     sendEvent(event = Event.Toast(error.error.message))
                 }
+            Log.d("check in VM", "${state.value.productDetails?.category}")
 
             _state.update {
                 it.copy(isLoading = false)
@@ -52,6 +57,19 @@ class StoreProductDetailsViewModel @Inject constructor(
 
 data class ProductDetailsScreenState(
     val isLoading: Boolean = false,
-    val productDetails: Product? = null,
+    val productDetails: Product =
+        Product(
+                id = 0,
+                title = "null",
+                description = "null",
+                price = 00.00,
+                category = "null",
+                image = "null",
+                rating = Rating(
+                    rate = 0.0,
+                    count = 0
+                )
+            )
+        ,
     val error: String? = null
 )
