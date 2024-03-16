@@ -53,10 +53,19 @@ class StoreProductDetailsViewModel @Inject constructor(
             }
         }
     }
+    fun updateCart(product:Product,quantity: Int){
+        _state.update {
+            it.copy(cartItems = it.cartItems.toMutableList().apply {
+                add(CartItem(product,quantity))
+            } )
+        }
+        Log.d("check List" ,"${state.value.cartItems[0].quantity}")
+    }
 }
 
 data class ProductDetailsScreenState(
     val isLoading: Boolean = false,
+    val cartItems: MutableList<CartItem> = mutableListOf(),
     val productDetails: Product =
         Product(
                 id = 0,
@@ -72,4 +81,8 @@ data class ProductDetailsScreenState(
             )
         ,
     val error: String? = null
+)
+class CartItem(
+    val product: Product,
+    val quantity: Int
 )
