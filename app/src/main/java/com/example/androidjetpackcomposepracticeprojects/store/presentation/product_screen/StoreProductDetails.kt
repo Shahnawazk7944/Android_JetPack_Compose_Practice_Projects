@@ -18,6 +18,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.AddTask
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -25,10 +28,13 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -90,6 +96,9 @@ fun ProductDetailsContent(
     Log.d("enter in product details", "nothing")
     var count by rememberSaveable {
         mutableIntStateOf(1)
+    }
+    var dialogState by remember {
+        mutableStateOf(false)
     }
     if (!state.isLoading) {
         Scaffold(
@@ -291,6 +300,7 @@ fun ProductDetailsContent(
                         Button(
                             onClick = {
                                 viewModel.updateCart(state.productDetails, quantity = count)
+                                dialogState = true
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -303,7 +313,7 @@ fun ProductDetailsContent(
 
                         ) {
                             Text(
-                                text = "Add To Cart",
+                                text = "Added To Cart",
                                 fontFamily = poppins,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 18.sp,
@@ -318,6 +328,52 @@ fun ProductDetailsContent(
                     }
                 }
 //                Spacer(modifier = Modifier.height(5.dp))
+
+                if (dialogState) {
+                    AlertDialog(
+                        icon = {
+                            Icon(
+                            imageVector = Icons.Outlined.AddTask,
+                            contentDescription = "Example Icon",
+                            tint = AzureMist,
+                            modifier = Modifier.size(50.dp)
+                        )},
+                        title = {
+                            Text(
+                                text = "Your Product Is Added To Cart",
+                                fontFamily = poppins,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 25.sp,
+                                color = AzureMist,
+                               textAlign = TextAlign.Center
+                            )
+                        },
+                        onDismissRequest = {
+                            dialogState = false
+                        },
+                        confirmButton = {
+                            TextButton(
+                                onClick = {
+                                    dialogState = false
+                                }
+                            ) {
+                                Text("Navigate to Cart")
+                            }
+                        },
+                        dismissButton = {
+                            TextButton(
+                                onClick = {
+                                   dialogState = false
+
+                                }
+                            ) {
+                                Text("Cancel")
+                            }
+                        }
+
+
+                    )
+                }
             }
 
         }
