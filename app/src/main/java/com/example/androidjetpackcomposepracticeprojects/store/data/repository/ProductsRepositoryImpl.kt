@@ -30,7 +30,7 @@ class ProductDetailsRepositoryImpl @Inject constructor(
     private val productDetailApi: ProductDetailApi
 ) : ProductDetailsRepository {
     override suspend fun getProductDetails(productId: String): Either<NetworkError, Product> {
-        delay(2000)
+        //delay(2000)
         return try {
             val product = withContext(Dispatchers.IO) {
                 async { productDetailApi.getProductDetails(productId = productId) }.await()
