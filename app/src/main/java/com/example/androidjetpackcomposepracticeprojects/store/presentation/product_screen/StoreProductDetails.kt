@@ -29,7 +29,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -78,7 +77,7 @@ fun StoreProductDetails(
 
 
     ProductDetailsContent(
-        state = state, navController = navController
+        state = state, navController = navController, viewModel = viewModel
     )
 
 }
@@ -86,11 +85,11 @@ fun StoreProductDetails(
 @Composable
 fun ProductDetailsContent(
     state: ProductDetailsScreenState,
-    navController: NavHostController,
+    navController: NavHostController, viewModel: StoreProductDetailsViewModel
 ) {
     Log.d("enter in product details", "nothing")
     var count by rememberSaveable {
-     mutableIntStateOf(1)
+        mutableIntStateOf(1)
     }
     if (!state.isLoading) {
         Scaffold(
@@ -238,14 +237,16 @@ fun ProductDetailsContent(
                                 ) {
 
                                     IconButton(onClick = {
-                                        if(count != 1){
+                                        if (count != 1) {
                                             count--
                                         }
                                     }) {
                                         Icon(
                                             painter = painterResource(R.drawable.decrease),
                                             contentDescription = "null",
-                                            modifier = Modifier.size(25.dp).weight(1f)
+                                            modifier = Modifier
+                                                .size(25.dp)
+                                                .weight(1f)
                                         )
                                     }
                                     Text(
@@ -258,14 +259,16 @@ fun ProductDetailsContent(
                                         modifier = Modifier.weight(2f)
                                     )
                                     IconButton(onClick = {
-                                        if(count >= 1){
+                                        if (count >= 1) {
                                             count++
                                         }
                                     }) {
                                         Icon(
                                             painter = painterResource(R.drawable.increase),
                                             contentDescription = "null",
-                                            modifier = Modifier.size(25.dp).weight(1f)
+                                            modifier = Modifier
+                                                .size(25.dp)
+                                                .weight(1f)
                                         )
                                     }
                                 }
@@ -286,7 +289,9 @@ fun ProductDetailsContent(
                         )
                         Spacer(modifier = Modifier.height(10.dp))
                         Button(
-                            onClick = { /*TODO*/ },
+                            onClick = {
+                                viewModel.updateCart(state.productDetails, quantity = count)
+                            },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 //.height(380.dp)
@@ -339,6 +344,7 @@ fun ProductDetailsPreview() {
                 )
             )
         ),
+        viewModel = hiltViewModel(),
         navController = rememberNavController(),
 //        product = Product(
 //            id = 1,
