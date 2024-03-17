@@ -28,7 +28,6 @@ class StoreProductDetailsViewModel @Inject constructor(
             _state.update {
                 it.copy(isLoading = true)
             }
-            Log.d("check in VM", "")
 
             productDetailsRepository.getProductDetails(productId = productId)
                 .onRight { productDetails ->
@@ -46,7 +45,7 @@ class StoreProductDetailsViewModel @Inject constructor(
                     }
                     sendEvent(event = Event.Toast(error.error.message))
                 }
-            Log.d("check in VM", "${state.value.productDetails?.category}")
+
 
             _state.update {
                 it.copy(isLoading = false)
@@ -59,21 +58,28 @@ class StoreProductDetailsViewModel @Inject constructor(
                 add(CartItem(product,quantity))
             } )
         }
-        Log.d("check List" ,"${state.value.cartItems[0].quantity}")
     }
     fun deleteCartItem(index: Int){
         _state.update {
             it.copy(
                 cartItems = it.cartItems.toMutableList().apply {
                 removeAt(index)
-//                add(CartItem(product,quantity))
             }, )
         }
-//        Log.d("check List" ,"${state.value.cartItems[0].quantity}")
     }
+    fun changeNavigationState(route: String){
+        _state.update {
+            it.copy(
+                route = route
+              )
+        }
+    }
+
+
 }
 
 data class ProductDetailsScreenState(
+    var route:String = "home",
     val isLoading: Boolean = false,
     val cartItems: MutableList<CartItem> = mutableListOf(),
     val productDetails: Product =

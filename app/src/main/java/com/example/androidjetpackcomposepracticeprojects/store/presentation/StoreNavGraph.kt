@@ -15,13 +15,13 @@ import com.example.androidjetpackcomposepracticeprojects.store.presentation.view
 
 @Composable
 fun StoreNavGraph(
-    viewModel: StoreProductDetailsViewModel = hiltViewModel(),
+    viewModel: StoreProductDetailsViewModel,
     navController: NavHostController,
 ) {
     NavHost(navController = navController, startDestination = StoreScreen.StoreHomeScreen.route) {
 
         composable(route = StoreScreen.StoreHomeScreen.route) {
-            StoreProductScreen(navController = navController)
+            StoreProductScreen(navController = navController, productViewModel = viewModel)
         }
 
         composable(

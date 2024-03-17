@@ -30,20 +30,25 @@ import com.example.androidjetpackcomposepracticeprojects.store.presentation.util
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.StoreTopAppBar
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductScreenState
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductsViewModel
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.StoreProductDetailsViewModel
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.ubuntu
 
 @Composable
 internal fun StoreProductScreen(
-    viewModel: ProductsViewModel = hiltViewModel(), navController: NavHostController
-) {
+    viewModel: ProductsViewModel = hiltViewModel(),
+    navController: NavHostController,
+    productViewModel: StoreProductDetailsViewModel,
+    ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    ProductContent(state = state, navController = navController)
+    ProductContent(state = state, navController = navController){
+        productViewModel.changeNavigationState("")
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProductContent(
-    state: ProductScreenState, navController: NavHostController
+    state: ProductScreenState, navController: NavHostController,onClick: (String) -> Unit
 ) {
     LoadingDialog(isLoading = state.isLoading)
     Scaffold(
@@ -80,6 +85,7 @@ fun ProductContent(
             items(state.product.size) { index ->
                 val product = state.product[index]
                 Box(Modifier.clickable {
+                    onClick("")
                     navController.navigate(StoreScreen.StoreProductDetails.passToProductDetailsScree(index+1)) // Navigate with index
                 }) {
                     ProductCard(product = product)

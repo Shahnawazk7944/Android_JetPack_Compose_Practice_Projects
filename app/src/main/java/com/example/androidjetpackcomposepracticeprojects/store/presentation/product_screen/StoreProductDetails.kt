@@ -45,6 +45,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -117,9 +118,21 @@ fun ProductDetailsContent(
                     },
                     appBarLeadingIcon = painterResource(R.drawable.back),
                     onClick = {
+                        viewModel.changeNavigationState("home")
                         navController.navigateUp()
                     },
                     action = {
+                        IconButton(onClick = {
+                            viewModel.changeNavigationState("cart")
+                            navController.navigate(StoreScreen.StoreProductCart.route)
+                        }) {
+                            Icon(
+                                painter = painterResource(R.drawable.cart),
+                                contentDescription = "empty cart",
+                                tint = Color.Unspecified,
+                                modifier = Modifier.size(30.dp),
+                            )
+                        }
 
                     }
                 )
@@ -200,9 +213,11 @@ fun ProductDetailsContent(
                         Spacer(modifier = Modifier.height(10.dp))
                         Text(
                             text = state.productDetails.title,
+                            maxLines = 3,
+                            overflow = TextOverflow.Ellipsis,
                             fontFamily = poppins,
                             fontWeight = FontWeight.Medium,
-                            fontSize = 20.sp,
+                            fontSize = 18.sp,
                             color = AzureMist,
                             modifier = Modifier
                                 .padding(start = 20.dp)
@@ -289,9 +304,11 @@ fun ProductDetailsContent(
                         Spacer(modifier = Modifier.height(15.dp))
                         Text(
                             text = state.productDetails.description,
+                            maxLines = 4,
+                            overflow = TextOverflow.Ellipsis,
                             fontFamily = poppins,
                             fontWeight = FontWeight.Normal,
-                            fontSize = 16.sp,
+                            fontSize = 14.sp,
                             color = AzureMist,
                             modifier = Modifier
                                 .padding(start = 20.dp)
@@ -351,11 +368,14 @@ fun ProductDetailsContent(
                         },
                         onDismissRequest = {
                             dialogState = false
+                            count = 1
                         },
                         confirmButton = {
                             TextButton(
                                 onClick = {
+                                    viewModel.changeNavigationState("cart")
                                     navController.navigate(StoreScreen.StoreProductCart.route)
+                                    count = 1
                                     dialogState = false
                                 }
                             ) {
@@ -366,6 +386,7 @@ fun ProductDetailsContent(
                             TextButton(
                                 onClick = {
                                    dialogState = false
+                                    count = 1
 
                                 }
                             ) {
