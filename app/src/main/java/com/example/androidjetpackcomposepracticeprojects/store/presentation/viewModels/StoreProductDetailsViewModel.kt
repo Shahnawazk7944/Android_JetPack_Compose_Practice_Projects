@@ -61,6 +61,16 @@ class StoreProductDetailsViewModel @Inject constructor(
         }
         Log.d("check List" ,"${state.value.cartItems[0].quantity}")
     }
+    fun deleteCartItem(index: Int){
+        _state.update {
+            it.copy(
+                cartItems = it.cartItems.toMutableList().apply {
+                removeAt(index)
+//                add(CartItem(product,quantity))
+            }, )
+        }
+//        Log.d("check List" ,"${state.value.cartItems[0].quantity}")
+    }
 }
 
 data class ProductDetailsScreenState(

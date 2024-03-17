@@ -56,6 +56,7 @@ import coil.compose.AsyncImage
 import com.example.androidjetpackcomposepracticeprojects.R
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Product
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Rating
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.StoreScreen
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.RatingBar
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.LoadingDialog
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.StoreTopAppBar
@@ -70,7 +71,7 @@ import com.example.androidjetpackcomposepracticeprojects.ui.theme.ubuntu
 
 @Composable
 fun StoreProductDetails(
-    viewModel: StoreProductDetailsViewModel = hiltViewModel(),
+    viewModel: StoreProductDetailsViewModel,
     navController: NavHostController, index: String
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -354,6 +355,7 @@ fun ProductDetailsContent(
                         confirmButton = {
                             TextButton(
                                 onClick = {
+                                    navController.navigate(StoreScreen.StoreProductCart.route)
                                     dialogState = false
                                 }
                             ) {
