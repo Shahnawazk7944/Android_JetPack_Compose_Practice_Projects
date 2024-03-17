@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -26,13 +27,15 @@ import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.compose.rememberNavController
-import com.example.androidjetpackcomposepracticeprojects.models.Screen
 import com.example.androidjetpackcomposepracticeprojects.models.ViewModal
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.StoreNavGraph
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.StoreScreen
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.StoreProductDetailsViewModel
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AndroidJetPackComposePracticeProjectsTheme
 import com.example.androidjetpackcomposepracticeprojects.util.Event
 import com.example.androidjetpackcomposepracticeprojects.util.EventBus
@@ -42,6 +45,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     //private lateinit var navController: NavHostController
     private val viewModal by viewModels<ViewModal>()
+    private val productVM by viewModels<StoreProductDetailsViewModel>()
 
     @SuppressLint(
         "ShowToast", "UnusedMaterial3ScaffoldPaddingParameter",
@@ -72,16 +76,18 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background,
                 ) {
                     val navController = rememberNavController()
-                    var selectedItem by rememberSaveable {
-                        mutableStateOf("home")
-                    }
+//                    var selectedItem by rememberSaveable {
+//                        mutableStateOf("home")
+//                    }
+                    val state by productVM.state.collectAsStateWithLifecycle()
+
                     Scaffold(
                         bottomBar = {
                             NavigationBar {
                                 NavigationBarItem(
-                                    selected = selectedItem == "home",
+                                    selected = state.route == "home",
                                     onClick = {
-                                        selectedItem = "home"
+                                        productVM.changeNavigationState("home")
                                         navController.navigate(StoreScreen.StoreHomeScreen.route)
                                     },
                                     icon = {
@@ -93,11 +99,27 @@ class MainActivity : ComponentActivity() {
                                                 .padding(4.dp)
                                         )
                                     })
+                                NavigationBarItem(
+                                    selected = state.route == "cart",
+
+                                    onClick = {
+                                        productVM.changeNavigationState("cart")
+                                        navController.navigate(StoreScreen.StoreProductCart.route)
+                                    },
+                                    icon = {
+                                        Icon(
+                                            painter = painterResource(R.drawable.cart),
+                                            contentDescription = null,
+                                            modifier = Modifier
+                                                .size(40.dp)
+                                                .padding(4.dp)
+                                        )
+                                    })
 
                                 NavigationBarItem(
-                                    selected = selectedItem == "profile",
+                                    selected = state.route == "profile",
                                     onClick = {
-                                        selectedItem = "profile"
+                                        productVM.changeNavigationState("profile")
                                         navController.navigate(StoreScreen.StoreProfileScreen.route)
                                     },
                                     icon = {
@@ -114,9 +136,15 @@ class MainActivity : ComponentActivity() {
 
                         }
                     ) {
-                        StoreNavGraph(
-                            navController = navController,
-                        )
+                        Box(modifier = Modifier
+                            .fillMaxSize()
+                            .padding(it)) {
+                           // val viewModel: StoreProductDetailsViewModel = hiltViewModel()
+                            StoreNavGraph(
+                                navController = navController,
+                                viewModel = productVM
+                            )
+                        }
                     }
 
                     //QuotesScreen()
