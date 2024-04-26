@@ -72,9 +72,6 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background,
                 ) {
                     val navController = rememberNavController()
-//                    var selectedItem by rememberSaveable {
-//                        mutableStateOf("home")
-//                    }
                     val state by productVM.state.collectAsStateWithLifecycle()
 
                     Scaffold(
