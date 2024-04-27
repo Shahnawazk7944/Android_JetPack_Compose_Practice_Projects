@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
@@ -54,11 +55,12 @@ fun StoreHomeScreen(
                     },
                     icon = {
                         Icon(
+
                             painter = painterResource(R.drawable.home),
                             contentDescription = null,
                             modifier = Modifier
-                                .size(30.dp)
-                               // .padding(bottom = 10.dp)
+                                .size(30.dp).padding(2.dp)
+                                .offset(y = (-4).dp)
                         )
                     },
                     label = {
@@ -90,10 +92,26 @@ fun StoreHomeScreen(
                             painter = painterResource(R.drawable.heart),
                             contentDescription = null,
                             modifier = Modifier
-                                .size(35.dp)
-                                .padding(4.dp)
+                                .size(30.dp).padding(2.dp)
+                                .offset(y = (-4).dp)
                         )
-                    })
+                    },
+                    label = {
+                        Text(
+                            text = "Favourite",
+                            fontFamily = poppins,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Medium
+                            )
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = FPrimaryGreen,
+                        unselectedIconColor = Color.Gray,
+                        selectedTextColor = FPrimaryGreen,
+                        unselectedTextColor = Color.Gray,
+                        indicatorColor = FSecondaryBackgroundWhite
+                    ),
+                    )
 
                 NavigationBarItem(
                     selected = state.route == "try",
@@ -106,10 +124,27 @@ fun StoreHomeScreen(
                             painter = painterResource(R.drawable.trynow),
                             contentDescription = null,
                             modifier = Modifier
-                                .size(35.dp)
-                                .padding(4.dp)
+                                .size(30.dp).padding(2.dp)
+                                .offset(y = (-4).dp)
                         )
-                    })
+                    },
+                    label = {
+                        Text(
+                            text = "Try Now",
+                            fontFamily = poppins,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Medium,
+
+                            )
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = FPrimaryGreen,
+                        unselectedIconColor = Color.Gray,
+                        selectedTextColor = FPrimaryGreen,
+                        unselectedTextColor = Color.Gray,
+                        indicatorColor = FSecondaryBackgroundWhite
+                    ),
+                    )
 
                 NavigationBarItem(
 
@@ -124,10 +159,27 @@ fun StoreHomeScreen(
                             painter = painterResource(R.drawable.cart),
                             contentDescription = null,
                             modifier = Modifier
-                                .size(40.dp)
-                                .padding(4.dp)
+                                .size(30.dp).padding(2.dp)
+                                .offset(y = (-4).dp)
                         )
-                    })
+                    },
+                    label = {
+                        Text(
+                            text = "Shopping",
+                            fontFamily = poppins,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Medium,
+
+                            )
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = FPrimaryGreen,
+                        unselectedIconColor = Color.Gray,
+                        selectedTextColor = FPrimaryGreen,
+                        unselectedTextColor = Color.Gray,
+                        indicatorColor = FSecondaryBackgroundWhite
+                    ),
+                    )
 
                 NavigationBarItem(
                     selected = state.route == "profile",
@@ -140,10 +192,27 @@ fun StoreHomeScreen(
                             painter = painterResource(R.drawable.user2),
                             contentDescription = null,
                             modifier = Modifier
-                                .size(35.dp)
-                                .padding(4.dp)
+                                .size(30.dp).padding(2.dp)
+                                .offset(y = (-4).dp)
                         )
-                    })
+                    },
+                    label = {
+                        Text(
+                            text = "Profile",
+                            fontFamily = poppins,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Medium,
+
+                            )
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = FPrimaryGreen,
+                        unselectedIconColor = Color.Gray,
+                        selectedTextColor = FPrimaryGreen,
+                        unselectedTextColor = Color.Gray,
+                        indicatorColor = FSecondaryBackgroundWhite
+                    ),
+                    )
 
             }
 
