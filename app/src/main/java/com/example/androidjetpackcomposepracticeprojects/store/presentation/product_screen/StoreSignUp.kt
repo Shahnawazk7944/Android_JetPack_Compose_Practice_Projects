@@ -376,7 +376,7 @@ fun StoreSignUpContent(
                                     )
                                 }
                             }else -> {
-                                authNavController.navigate(AuthScreen.StoreHomeScreen.route) { popUpTo(0) }
+                                authNavController.navigate(AuthScreen.StoreSignIn.route) { popUpTo(0) }
                             }
                         }
                     } else {
