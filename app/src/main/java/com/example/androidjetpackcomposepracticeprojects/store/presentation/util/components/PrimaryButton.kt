@@ -43,7 +43,7 @@ fun PrimaryButton(
         modifier = modifier
             .fillMaxWidth()
             .height(75.dp)
-            .padding(10.dp).padding(horizontal = 10.dp),
+            .padding(10.dp),
         //.clip(RoundedCornerShape(50.dp))
         shape = RoundedCornerShape(15.dp),
         elevation = ButtonDefaults.buttonElevation(

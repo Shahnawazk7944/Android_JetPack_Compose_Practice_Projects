@@ -15,6 +15,8 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.androidjetpackcomposepracticeprojects.R
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBackground
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBlack
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -31,13 +33,13 @@ fun StoreTopAppBar(
                 Icon(
                     painter = appBarLeadingIcon,
                     contentDescription = "back Icon",
-                    tint = Color.White,
-                    modifier = Modifier.size(18.dp),
+                    tint = FPrimaryBlack,
+                    modifier = Modifier.size(25.dp),
                 )
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.background
+            containerColor = FPrimaryBackground
         ),
         actions = action
     )
