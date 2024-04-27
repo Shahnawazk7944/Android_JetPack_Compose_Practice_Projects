@@ -46,7 +46,6 @@ import coil.compose.AsyncImage
 import com.example.androidjetpackcomposepracticeprojects.R
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Product
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Rating
-import com.example.androidjetpackcomposepracticeprojects.store.presentation.StoreScreen
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.StoreTopAppBar
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.CartItem
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductDetailsScreenState
