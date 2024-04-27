@@ -41,7 +41,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-
+            val lifecyclleOwner = LocalLifecycleOwner.current.lifecycle
+            LaunchedEffect(key1 = lifecyclleOwner) {
+                lifecyclleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                    EventBus.event.collect { event ->
+                        when (event) {
+                            is Event.Toast -> {
+                                Toast.makeText(this@MainActivity, event.message, Toast.LENGTH_SHORT)
+                                    .show()
+                            }
+                        }
+                    }
+                }
+            }
 
             AndroidJetPackComposePracticeProjectsTheme {
 
