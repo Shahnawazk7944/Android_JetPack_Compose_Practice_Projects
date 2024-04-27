@@ -30,8 +30,9 @@ val Greenish = Color(0xFF43C7A3)
 
 //furniture App Colors
 
-val FPrimaryGreen = Color(0xFF127475)
-val FPrimaryBackground = Color(0xFFedf6f9)
+val FPrimaryGreen = Color(0xFF0c8a7b)
+//val FPrimaryBackground = Color(0xFFedf6f9)
+val FPrimaryBackground = Color(0xFFf2f2f2)
 val FSecondaryBackgroundWhite = Color(0xFFffffff)
 val FPrimaryBlack = Color(0xFF051923)
 val FPrice = Color(0xFFf48c06)
