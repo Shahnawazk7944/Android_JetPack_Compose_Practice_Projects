@@ -1,7 +1,6 @@
 package com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -18,15 +17,22 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,7 +40,9 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -49,6 +57,8 @@ import com.example.androidjetpackcomposepracticeprojects.store.presentation.view
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.StoreProductDetailsViewModel
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBackground
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBlack
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryGreen
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FSecondaryBackgroundWhite
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.poppins
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.ubuntu
 
@@ -80,6 +90,8 @@ fun ProductContent(
                 .padding(padding)
         ) {
             ProfileSection()
+
+            FSearchbar()
 
             LazyVerticalStaggeredGrid(
                 //modifier = Modifier.padding(padding),
@@ -134,12 +146,16 @@ fun ProfileSection(
                 horizontalArrangement = Arrangement.Center
             ) {
                 Spacer(modifier = Modifier.width(10.dp))
-                Box(modifier = Modifier.weight(.5f).scale(1.5f), contentAlignment = Alignment.Center) {
+                Box(modifier = Modifier
+                    .weight(.5f)
+                    .scale(1.5f), contentAlignment = Alignment.Center) {
                     Image(
                         painter = painterResource(id = R.drawable.tem_profile2),
                         contentDescription = null,
-                        modifier = Modifier.size(50.dp)
-                            .padding(5.dp).clip(CircleShape),
+                        modifier = Modifier
+                            .size(50.dp)
+                            .padding(5.dp)
+                            .clip(CircleShape),
                         contentScale = ContentScale.Crop,
                         alignment = Alignment.Center,
                     )
@@ -195,3 +211,74 @@ fun ProfileSection(
     }
 }
 
+@Composable
+fun FSearchbar(){
+    var searchText by remember {
+        mutableStateOf("")
+    }
+    Column(
+        modifier = Modifier
+            .padding(10.dp).padding(horizontal = 15.dp)
+    ) {
+        Spacer(modifier = Modifier.height(0.dp))
+        OutlinedTextField(
+            value = searchText,
+            onValueChange = {
+                searchText = it
+            },
+            textStyle = TextStyle(
+                fontFamily = poppins,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Normal,
+                //color = AppTheme.colors.secondary
+            ),
+
+            placeholder = {
+                Text(
+                    text = "Search Products",
+                    fontFamily = poppins,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal,
+                    //color = AppTheme.colors.onError
+                )
+            },
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text
+            ),
+            singleLine = true,
+            shape = RoundedCornerShape(15.dp),
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedTextColor = FPrimaryGreen,
+                unfocusedTextColor = FPrimaryBlack,
+                focusedContainerColor = FSecondaryBackgroundWhite,
+                unfocusedContainerColor = FSecondaryBackgroundWhite,
+                unfocusedBorderColor = Color.Transparent,
+                focusedBorderColor = FPrimaryGreen,
+                focusedPlaceholderColor = Color.Gray,
+                unfocusedPlaceholderColor = Color.Gray,
+                focusedLeadingIconColor = FPrimaryGreen,
+                unfocusedLeadingIconColor = Color.Gray,
+                focusedTrailingIconColor = FPrimaryGreen,
+                unfocusedTrailingIconColor = Color.Gray
+            ),
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.search),
+                    contentDescription = "search icon",
+                    modifier = Modifier.size(30.dp)
+                )
+            },
+            trailingIcon = {
+                IconButton(onClick = {  }) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.filt),
+                        contentDescription = "filter icon",
+                        modifier = Modifier.size(30.dp)
+                    )
+                }
+            },
+            modifier = Modifier.fillMaxWidth(),
+        )
+
+    }
+}
