@@ -18,7 +18,7 @@ class ProductsRepositoryImpl @Inject constructor(
     private val productApi: ProductApi
 ) : ProductsRepository {
     override suspend fun getProduct(): Either<NetworkError, List<Product>> {
-        // delay(3000)
+        delay(2000)
         return Either.catch {
             productApi.getProducts()
         }.mapLeft { it.toNetworkError() }

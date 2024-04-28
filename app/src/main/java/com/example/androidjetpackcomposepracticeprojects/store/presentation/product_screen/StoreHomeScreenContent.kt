@@ -61,6 +61,7 @@ import com.example.androidjetpackcomposepracticeprojects.R
 import com.example.androidjetpackcomposepracticeprojects.store.NavGraphs.StoreScreen
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.MostInterestedProductCard
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.PageIndicator
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.PopularProductCard
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.LoadingDialog
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductScreenState
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductsViewModel
@@ -120,13 +121,11 @@ fun ProductContent(
         pageCount = { specialOfferDiscounts.size },
     )
 
-
-    LoadingDialog(isLoading = state.isLoading)
+    LoadingDialog(isLoading = state.isLoading )
     Scaffold(
         containerColor = FPrimaryBackground,
         modifier = Modifier
     ) { padding ->
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -140,6 +139,7 @@ fun ProductContent(
             FSearchbar()
 
             //Special offer Text
+            if (!state.isLoading){
             FProductCategoryName(categoryName = "Special Offers", expandType = "")
 
             //Pager For Special Offers
@@ -187,11 +187,10 @@ fun ProductContent(
             }
 
             //Most Interested Products
-            FProductCategoryName(categoryName = "Most Interested")
+            FProductCategoryName(categoryName = "Most Interested")}
             Spacer(modifier = Modifier.height(15.dp))
             LazyRow(
                 contentPadding = PaddingValues(horizontal = 10.dp),
-                // horizontalArrangement = Arrangement.spacedBy(20.dp),
             ) {
 
                 items(state.product.size) { index ->
@@ -214,11 +213,10 @@ fun ProductContent(
             }
 
             //Popular Products
-            FProductCategoryName(categoryName = "Popular")
+            if (!state.isLoading){ FProductCategoryName(categoryName = "Popular")}
             Spacer(modifier = Modifier.height(15.dp))
             LazyRow(
                 contentPadding = PaddingValues(horizontal = 20.dp),
-                horizontalArrangement = Arrangement.spacedBy(20.dp),
             ) {
 
                 items(state.product.size) { index ->
@@ -231,7 +229,7 @@ fun ProductContent(
                             )
                         ) // Navigate with index
                     }) {
-                        MostInterestedProductCard(
+                        PopularProductCard(
                             product = product,
                             index = index,
                             selectedIndex = {
@@ -247,8 +245,11 @@ fun ProductContent(
 
                 }
             }
-        }
 
+            //Spacer for bottom
+            Spacer(modifier = Modifier.height(30.dp))
+
+        }
     }
 }
 
