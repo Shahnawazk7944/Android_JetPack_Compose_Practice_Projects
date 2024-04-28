@@ -52,7 +52,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -63,7 +62,6 @@ import com.example.androidjetpackcomposepracticeprojects.store.NavGraphs.StoreSc
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.MostInterestedProductCard
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.PageIndicator
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.LoadingDialog
-import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.PrimaryButton
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductScreenState
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductsViewModel
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.StoreProductDetailsViewModel
@@ -85,15 +83,18 @@ internal fun StoreProductScreen(
     ProductContent(
         state = state,
         navController = navController,
-        onClick =  { productViewModel.changeNavigationState("") },
-        sortMostInterestedProducts = {viewModel.sortMostInterestedProducts(it)}
+        onClick = { productViewModel.changeNavigationState("") },
+        sortMostInterestedProducts = { viewModel.sortMostInterestedProducts(it) }
     )
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun ProductContent(
-    state: ProductScreenState, navController: NavHostController, onClick: (String) -> Unit, sortMostInterestedProducts: (String) -> Unit
+    state: ProductScreenState,
+    navController: NavHostController,
+    onClick: (String) -> Unit,
+    sortMostInterestedProducts: (String) -> Unit
 ) {
     val specialOfferImages = listOf(
         painterResource(id = R.drawable.sp0),
@@ -175,7 +176,7 @@ fun ProductContent(
             ) {
                 items(productsCategory.size) { index ->
                     FSortMostInterestedProductButton(
-                        state =state,
+                        state = state,
                         categoryName = productsCategory[index],
                         painter = painterResource(id = R.drawable.back),
                         selectedCategory = {
@@ -186,11 +187,11 @@ fun ProductContent(
             }
 
             //Most Interested Products
-            FProductCategoryName(categoryName = "Popular")
+            FProductCategoryName(categoryName = "Most Interested")
             Spacer(modifier = Modifier.height(15.dp))
             LazyRow(
-                contentPadding = PaddingValues(horizontal = 20.dp),
-                horizontalArrangement = Arrangement.spacedBy(20.dp),
+                contentPadding = PaddingValues(horizontal = 10.dp),
+               // horizontalArrangement = Arrangement.spacedBy(20.dp),
             ) {
 
                 items(state.product.size) { index ->
@@ -203,7 +204,9 @@ fun ProductContent(
                             )
                         ) // Navigate with index
                     }) {
-                        MostInterestedProductCard(product = product)
+                        if (state.selectedCategory == state.product[index].category) {
+                            MostInterestedProductCard(product = product)
+                        }
                     }
 
                 }
@@ -495,8 +498,8 @@ fun FSortMostInterestedProductButton(
             pressedElevation = 0.dp
         ),
         colors = ButtonDefaults.buttonColors(
-            containerColor =if ( state.selectedCategory == categoryName) FPrimaryGreen else FSecondaryBackgroundWhite ,
-            contentColor = if ( state.selectedCategory == categoryName) FSecondaryBackgroundWhite else FPrimaryBlack ,
+            containerColor = if (state.selectedCategory == categoryName) FPrimaryGreen else FSecondaryBackgroundWhite,
+            contentColor = if (state.selectedCategory == categoryName) FSecondaryBackgroundWhite else FPrimaryBlack,
         )
     ) {
         Row {
