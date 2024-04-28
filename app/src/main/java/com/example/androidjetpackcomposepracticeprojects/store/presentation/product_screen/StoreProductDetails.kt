@@ -2,7 +2,9 @@ package com.example.androidjetpackcomposepracticeprojects.store.presentation.pro
 
 
 import android.util.Log
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,8 +16,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -25,7 +27,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -50,15 +51,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.androidjetpackcomposepracticeprojects.R
+import com.example.androidjetpackcomposepracticeprojects.store.NavGraphs.StoreScreen
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Product
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Rating
-import com.example.androidjetpackcomposepracticeprojects.store.NavGraphs.StoreScreen
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.RatingBar
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.LoadingDialog
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.StoreTopAppBar
@@ -66,16 +66,18 @@ import com.example.androidjetpackcomposepracticeprojects.store.presentation.view
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.StoreProductDetailsViewModel
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AzureMist
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.DarkBrown
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrice
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBackground
-import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_32
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBlack
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryGreen
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FRating
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FSecondaryBackgroundWhite
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.poppins
-import com.example.androidjetpackcomposepracticeprojects.ui.theme.rubik
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.ubuntu
 
 @Composable
 fun StoreProductDetails(
-    viewModel: StoreProductDetailsViewModel,
-    navController: NavHostController, index: String
+    viewModel: StoreProductDetailsViewModel, navController: NavHostController, index: String
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     LaunchedEffect(true) {
@@ -83,14 +85,12 @@ fun StoreProductDetails(
     }
 
 
-    ProductDetailsContent(
-        state = state,
+    ProductDetailsContent(state = state,
         navController = navController,
         changeRoute = { viewModel.changeNavigationState(it) },
         addToCart = { product, quantity ->
-            viewModel.updateCart( product, quantity)
-        }
-    )
+            viewModel.updateCart(product, quantity)
+        })
 
 }
 
@@ -111,19 +111,16 @@ fun ProductDetailsContent(
     if (!state.isLoading) {
         Scaffold(
             containerColor = FPrimaryBackground,
+            //Top App bar
             topBar = {
-                StoreTopAppBar(
-                    title = {},
+                StoreTopAppBar(title = {},
                     appBarLeadingIcon = painterResource(R.drawable.back),
                     onClick = {
                         changeRoute("home")
                         navController.navigateUp()
                     },
                     action = {
-                        IconButton(
-                            modifier = Modifier
-                                .scale(1f),
-                            onClick = {}) {
+                        IconButton(modifier = Modifier.scale(1f), onClick = {}) {
                             Icon(
                                 painter = painterResource(R.drawable.heart),
                                 contentDescription = null,
@@ -133,8 +130,7 @@ fun ProductDetailsContent(
                                 tint = Color.Unspecified
                             )
                         }
-                    }
-                )
+                    })
             },
         ) { paddingValues ->
             Column(
@@ -145,6 +141,7 @@ fun ProductDetailsContent(
                     .clip(RoundedCornerShape(15.dp))
                     .background(FPrimaryBackground),
             ) {
+                //Product image Box
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -165,234 +162,321 @@ fun ProductDetailsContent(
                     )
                 }
 
+
                 Spacer(modifier = Modifier.height(5.dp))
-                Box(
+                Column(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .height(380.dp)
-                        .padding(15.dp, 0.dp, 15.dp, 15.dp)
-                        .clip(RoundedCornerShape(30.dp))
-                        .background(Color(0xFFcf5c7b))
-                        .verticalScroll(rememberScrollState())
-
+                        .fillMaxSize()
+                        .padding(15.dp)
+                        .background(FPrimaryBackground)
                 ) {
-                    Column(
+                    // ------------------- Product Title and Price
+                    Row(
                         modifier = Modifier
-                            .fillMaxSize()
-                            .padding(top = 12.dp, start = 0.dp, end = 5.dp, bottom = 5.dp)
+                            .fillMaxWidth()
+                            .padding(start = 10.dp, top = 10.dp),
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Row(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(start = 20.dp)
-                        ) {
-                            Text(
-                                text = state.productDetails.category.replaceFirstChar { it.uppercase() },
-                                fontFamily = rubik,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 16.sp,
-                                color = Color.LightGray,
-                                modifier = Modifier.weight(2f)
-                            )
-                            RatingBar(
-                                modifier = Modifier.size(20.dp),
-                                rating = state.productDetails.rating.rate,
-                                starColor = gradient_32
-                            )
-                            Spacer(modifier = Modifier.width(10.dp))
-
-                            Text(
-                                text = "${state.productDetails.rating.count}",
-                                fontFamily = ubuntu,
-                                fontWeight = FontWeight.Medium,
-                                fontSize = 16.sp,
-                                color = Color.White,
-                                modifier = Modifier.padding(end = 10.dp)
-                            )
-                        }
-                        Spacer(modifier = Modifier.height(10.dp))
                         Text(
                             text = state.productDetails.title,
-                            maxLines = 3,
+                            maxLines = 2,
                             overflow = TextOverflow.Ellipsis,
                             fontFamily = poppins,
                             fontWeight = FontWeight.Medium,
-                            fontSize = 18.sp,
-                            color = AzureMist,
+                            fontSize = 22.sp,
+                            color = FPrimaryBlack,
                             modifier = Modifier
-                                .padding(start = 20.dp)
-
+                                .weight(4f)
+                                .align(Alignment.CenterVertically)
                         )
-                        Spacer(modifier = Modifier.height(10.dp))
-                        Row(
-                            horizontalArrangement = Arrangement.Center,
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .width(120.dp)
-                                    .clip(RoundedCornerShape(0.dp, 15.dp, 15.dp, 0.dp))
-                                    .background(Color.White),
-                                // .align(Alignment.Start),
-                                contentAlignment = Alignment.Center
-
-                            ) {
-                                Text(
-                                    text = "${state.productDetails.price}",
-                                    fontFamily = poppins,
-                                    fontWeight = FontWeight.Bold,
-                                    fontSize = 22.sp,
-                                    color = Color(0xFFcf5c7b),
-                                    modifier = Modifier
-                                        .padding(8.dp)
-                                )
-                            }
-                            Spacer(modifier = Modifier.width(60.dp))
-                            Box(
-                                modifier = Modifier
-                                    .width(140.dp)
-                                    .height(45.dp)
-                                    .clip(RoundedCornerShape(20.dp))
-                                    .background(DarkBrown),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Row(
-                                    horizontalArrangement = Arrangement.SpaceBetween,
-                                    verticalAlignment = Alignment.CenterVertically
-                                ) {
-
-                                    IconButton(onClick = {
-                                        if (count != 1) {
-                                            count--
-                                        }
-                                    }) {
-                                        Icon(
-                                            painter = painterResource(R.drawable.decrease),
-                                            contentDescription = "null",
-                                            modifier = Modifier
-                                                .size(25.dp)
-                                                .weight(1f)
-                                        )
-                                    }
-                                    Text(
-                                        text = "$count",
-                                        fontFamily = poppins,
-                                        fontWeight = FontWeight.Normal,
-                                        fontSize = 20.sp,
-                                        color = AzureMist,
-                                        textAlign = TextAlign.Center,
-                                        modifier = Modifier.weight(2f)
-                                    )
-                                    IconButton(onClick = {
-                                        if (count >= 1) {
-                                            count++
-                                        }
-                                    }) {
-                                        Icon(
-                                            painter = painterResource(R.drawable.increase),
-                                            contentDescription = "null",
-                                            modifier = Modifier
-                                                .size(25.dp)
-                                                .weight(1f)
-                                        )
-                                    }
-                                }
-                            }
-
-                        }
-
-                        Spacer(modifier = Modifier.height(15.dp))
-                        Text(
-                            text = state.productDetails.description,
-                            maxLines = 4,
-                            overflow = TextOverflow.Ellipsis,
-                            fontFamily = poppins,
-                            fontWeight = FontWeight.Normal,
-                            fontSize = 14.sp,
-                            color = AzureMist,
+                        Box(
                             modifier = Modifier
-                                .padding(start = 20.dp)
-
-                        )
-                        Spacer(modifier = Modifier.height(10.dp))
-                        Button(
-                            onClick = {
-                                addToCart(state.productDetails, count)
-                                dialogState = true
-                            },
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                //.height(380.dp)
-                                .padding(15.dp),
-                            shape = RoundedCornerShape(15.dp),
-                            colors = ButtonDefaults.buttonColors(
-                                containerColor = DarkBrown
-                            )
-
+                                .weight(2f)
+                                .padding(start = 10.dp),
+                            contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                text = "Added To Cart",
+                                text = "$ ${state.productDetails.price}",
                                 fontFamily = poppins,
                                 fontWeight = FontWeight.Bold,
-                                fontSize = 18.sp,
-                                color = AzureMist,
-                                modifier = Modifier
-                                    .padding(start = 20.dp)
-
+                                fontSize = 24.sp,
+                                color = FPrice,
                             )
+                        }
+                    }
+
+
+                    // ------------------- Product View,Like and Peoples
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 10.dp, top = 10.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Column {
+                            Row(
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                IconButton(modifier = Modifier.scale(1.5f), onClick = {}) {
+                                    Icon(
+                                        painter = painterResource(R.drawable.user2),
+                                        contentDescription = null,
+                                        modifier = Modifier.size(20.dp),
+                                        tint = Color.Gray
+                                    )
+                                }
+                                Text(
+                                    text = "${state.productDetails.rating.count + 23} Seen",
+                                    fontFamily = ubuntu,
+                                    fontWeight = FontWeight.Medium,
+                                    fontSize = 18.sp,
+                                    color = Color.Gray,
+                                    modifier = Modifier.padding(end = 10.dp)
+                                )
+                                IconButton(modifier = Modifier.scale(1.5f), onClick = {}) {
+                                    Icon(
+                                        painter = painterResource(R.drawable.heart),
+                                        contentDescription = null,
+                                        modifier = Modifier.size(20.dp),
+                                        tint = Color.Gray
+                                    )
+                                }
+                                Text(
+                                    text = "${state.productDetails.rating.count} Liked",
+                                    fontFamily = ubuntu,
+                                    fontWeight = FontWeight.Medium,
+                                    fontSize = 18.sp,
+                                    color = Color.Gray,
+                                    modifier = Modifier.padding(end = 10.dp)
+                                )
+
+                            }
+
+                            //--------------------Rating Start
+                            Spacer(modifier = Modifier.height(10.dp))
+                            RatingBar(
+                                modifier = Modifier.size(30.dp),
+                                rating = state.productDetails.rating.rate,
+                                starColor = FRating
+                            )
+                        }
+
+                        //--------------------Rating Images
+                        Box(
+                            modifier = Modifier
+                        ) {
+
+                            Box(
+                                modifier = Modifier.scale(1.5f)
+                            ) {
+                                Image(
+                                    painter = painterResource(id = R.drawable.tem_profile),
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .size(35.dp)
+                                        .padding(5.dp)
+                                        .clip(CircleShape)
+                                        .border(1.dp, FSecondaryBackgroundWhite, CircleShape),
+                                    contentScale = ContentScale.Crop,
+                                    alignment = Alignment.Center,
+                                )
+                            }
+
+                            Box(
+                                modifier = Modifier
+                                    .scale(1.5f)
+                                    .padding(start = 15.dp)
+                            ) {
+                                Image(
+                                    painter = painterResource(id = R.drawable.tem_profile2),
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .size(35.dp)
+                                        .padding(5.dp)
+                                        .clip(CircleShape)
+                                        .border(1.dp, FSecondaryBackgroundWhite, CircleShape),
+                                    contentScale = ContentScale.Crop,
+                                    alignment = Alignment.Center,
+                                )
+                            }
+
+                            Box(
+                                modifier = Modifier
+                                    .padding(start = 35.dp)
+                                    .size(35.dp)
+                                    .clip(CircleShape)
+                                    .border(1.dp, FSecondaryBackgroundWhite, CircleShape)
+                                    .background(FPrimaryGreen),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = "+${state.productDetails.rating.count - 2}",
+                                    fontFamily = ubuntu,
+                                    fontWeight = FontWeight.Normal,
+                                    fontSize = 12.sp,
+                                    color = FSecondaryBackgroundWhite,
+                                )
+                            }
+
 
                         }
 
                     }
+
+
+
+                    Text(
+                        text = "Description",
+                        fontFamily = poppins,
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 22.sp,
+                        color = FPrimaryBlack,
+                        modifier = Modifier.padding(start = 10.dp, top = 10.dp)
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
+                        text = state.productDetails.description,
+                        maxLines = 3,
+                        overflow = TextOverflow.Ellipsis,
+                        fontFamily = poppins,
+                        fontWeight = FontWeight.Normal,
+                        fontSize = 14.sp,
+                        color = FPrimaryBlack,
+                        modifier = Modifier.padding(start = 20.dp)
+
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Button(
+                        onClick = {
+                            addToCart(state.productDetails, count)
+                            dialogState = true
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            //.height(380.dp)
+                            .padding(15.dp),
+                        shape = RoundedCornerShape(15.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = DarkBrown
+                        )
+
+                    ) {
+                        Text(
+                            text = "Added To Cart",
+                            fontFamily = poppins,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 18.sp,
+                            color = AzureMist,
+                            modifier = Modifier.padding(start = 20.dp)
+
+                        )
+
+                    }
+
                 }
 //                Spacer(modifier = Modifier.height(5.dp))
+//                Spacer(modifier = Modifier.height(10.dp))
+//
+//                Spacer(modifier = Modifier.height(10.dp))
+//                Row(
+//                    horizontalArrangement = Arrangement.Center,
+//                    verticalAlignment = Alignment.CenterVertically
+//                ) {
+//                    Spacer(modifier = Modifier.width(60.dp))
+//                    Box(
+//                        modifier = Modifier
+//                            .width(140.dp)
+//                            .height(45.dp)
+//                            .clip(RoundedCornerShape(20.dp))
+//                            .background(DarkBrown),
+//                        contentAlignment = Alignment.Center
+//                    ) {
+//                        Row(
+//                            horizontalArrangement = Arrangement.SpaceBetween,
+//                            verticalAlignment = Alignment.CenterVertically
+//                        ) {
+//
+//                            IconButton(onClick = {
+//                                if (count != 1) {
+//                                    count--
+//                                }
+//                            }) {
+//                                Icon(
+//                                    painter = painterResource(R.drawable.decrease),
+//                                    contentDescription = "null",
+//                                    modifier = Modifier
+//                                        .size(25.dp)
+//                                        .weight(1f)
+//                                )
+//                            }
+//                            Text(
+//                                text = "$count",
+//                                fontFamily = poppins,
+//                                fontWeight = FontWeight.Normal,
+//                                fontSize = 20.sp,
+//                                color = AzureMist,
+//                                textAlign = TextAlign.Center,
+//                                modifier = Modifier.weight(2f)
+//                            )
+//                            IconButton(onClick = {
+//                                if (count >= 1) {
+//                                    count++
+//                                }
+//                            }) {
+//                                Icon(
+//                                    painter = painterResource(R.drawable.increase),
+//                                    contentDescription = "null",
+//                                    modifier = Modifier
+//                                        .size(25.dp)
+//                                        .weight(1f)
+//                                )
+//                            }
+//                        }
+//                    }
+//
+//                }
 
                 if (dialogState) {
-                    AlertDialog(
-                        icon = {
-                            Icon(
+                    AlertDialog(icon = {
+                        Icon(
                             imageVector = Icons.Outlined.AddTask,
                             contentDescription = "Example Icon",
                             tint = AzureMist,
                             modifier = Modifier.size(50.dp)
-                        )},
-                        title = {
-                            Text(
-                                text = "Your Product Is Added To Cart",
-                                fontFamily = poppins,
-                                fontWeight = FontWeight.Bold,
-                                fontSize = 25.sp,
-                                color = AzureMist,
-                               textAlign = TextAlign.Center
-                            )
-                        },
-                        onDismissRequest = {
+                        )
+                    }, title = {
+                        Text(
+                            text = "Your Product Is Added To Cart",
+                            fontFamily = poppins,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 25.sp,
+                            color = AzureMist,
+                            textAlign = TextAlign.Center
+                        )
+                    }, onDismissRequest = {
+                        dialogState = false
+                        count = 1
+                    }, confirmButton = {
+                        TextButton(onClick = {
+                            changeRoute("cart")
+                            navController.navigate(StoreScreen.StoreProductCart.route)
+                            count = 1
+                            dialogState = false
+                        }) {
+                            Text("Navigate to Cart")
+                        }
+                    }, dismissButton = {
+                        TextButton(onClick = {
                             dialogState = false
                             count = 1
-                        },
-                        confirmButton = {
-                            TextButton(
-                                onClick = {
-                                    changeRoute("cart")
-                                    navController.navigate(StoreScreen.StoreProductCart.route)
-                                    count = 1
-                                    dialogState = false
-                                }
-                            ) {
-                                Text("Navigate to Cart")
-                            }
-                        },
-                        dismissButton = {
-                            TextButton(
-                                onClick = {
-                                   dialogState = false
-                                    count = 1
 
-                                }
-                            ) {
-                                Text("Cancel")
-                            }
+                        }) {
+                            Text("Cancel")
                         }
+                    }
 
 
                     )
@@ -408,24 +492,19 @@ fun ProductDetailsContent(
 @Preview
 @Composable
 fun ProductDetailsPreview() {
-    ProductDetailsContent(
-        state = ProductDetailsScreenState(
-            productDetails = Product(
-                id = 1,
-                title = "Green Card",
-                description = "dshjhdjs kljfdksfj dklfjkldsf",
-                price = 54.65,
-                category = "Eelectronics",
-                image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPg2SEl7UdWrd9wg_W0CCEZbw6XVfXK3B8KaikkJg0eNfJjhOyEzWj-fTAhw_iXluVzOQ&usqp=CAU",
-                rating = Rating(
-                    rate = 4.2,
-                    count = 564
-                )
+    ProductDetailsContent(state = ProductDetailsScreenState(
+        productDetails = Product(
+            id = 1,
+            title = "Green Card",
+            description = "dshjhdjs kljfdksfj dklfjkldsf",
+            price = 54.65,
+            category = "Eelectronics",
+            image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPg2SEl7UdWrd9wg_W0CCEZbw6XVfXK3B8KaikkJg0eNfJjhOyEzWj-fTAhw_iXluVzOQ&usqp=CAU",
+            rating = Rating(
+                rate = 4.2, count = 564
             )
-        ),
-        navController = rememberNavController(),
-        changeRoute = {},
-        addToCart = { product, i -> }
+        )
+    ), navController = rememberNavController(), changeRoute = {}, addToCart = { product, i -> }
 //        product = Product(
 //            id = 1,
 //            title = "Green Card",
