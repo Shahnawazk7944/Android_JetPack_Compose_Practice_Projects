@@ -40,6 +40,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -65,6 +66,7 @@ import com.example.androidjetpackcomposepracticeprojects.store.presentation.view
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.StoreProductDetailsViewModel
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.AzureMist
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.DarkBrown
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBackground
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_32
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.poppins
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.rubik
@@ -80,12 +82,14 @@ fun StoreProductDetails(
         viewModel.getProductDetails(productId = index)
     }
 
-    Log.d("check in product details", index)
-
-
 
     ProductDetailsContent(
-        state = state, navController = navController, viewModel = viewModel
+        state = state,
+        navController = navController,
+        changeRoute = { viewModel.changeNavigationState(it) },
+        addToCart = { product, quantity ->
+            viewModel.updateCart( product, quantity)
+        }
     )
 
 }
@@ -93,7 +97,9 @@ fun StoreProductDetails(
 @Composable
 fun ProductDetailsContent(
     state: ProductDetailsScreenState,
-    navController: NavHostController, viewModel: StoreProductDetailsViewModel
+    navController: NavHostController,
+    changeRoute: (String) -> Unit,
+    addToCart: (Product, Int) -> Unit
 ) {
     Log.d("enter in product details", "nothing")
     var count by rememberSaveable {
@@ -104,36 +110,29 @@ fun ProductDetailsContent(
     }
     if (!state.isLoading) {
         Scaffold(
-            modifier = Modifier.fillMaxSize(),
+            containerColor = FPrimaryBackground,
             topBar = {
                 StoreTopAppBar(
-                    title = {
-                        Text(
-                            "Product Details",
-                            fontFamily = ubuntu,
-                            fontSize = 25.sp,
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onBackground,
-                        )
-                    },
+                    title = {},
                     appBarLeadingIcon = painterResource(R.drawable.back),
                     onClick = {
-                        viewModel.changeNavigationState("home")
+                        changeRoute("home")
                         navController.navigateUp()
                     },
                     action = {
-                        IconButton(onClick = {
-                            viewModel.changeNavigationState("cart")
-                            navController.navigate(StoreScreen.StoreProductCart.route)
-                        }) {
+                        IconButton(
+                            modifier = Modifier
+                                .scale(1f),
+                            onClick = {}) {
                             Icon(
-                                painter = painterResource(R.drawable.cart),
-                                contentDescription = "empty cart",
-                                tint = Color.Unspecified,
-                                modifier = Modifier.size(30.dp),
+                                painter = painterResource(R.drawable.heart),
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .size(25.dp)
+                                    .weight(4f),
+                                tint = Color.Unspecified
                             )
                         }
-
                     }
                 )
             },
@@ -144,13 +143,13 @@ fun ProductDetailsContent(
                     .padding(paddingValues)
                     .padding(5.dp)
                     .clip(RoundedCornerShape(15.dp))
-                    .background(Color.LightGray),
+                    .background(FPrimaryBackground),
             ) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(300.dp)
-                        .padding(15.dp)
+                        .height(250.dp)
+                        .padding(horizontal = 10.dp)
                         .clip(RoundedCornerShape(30.dp))
                         .background(Color.White),
                     contentAlignment = Alignment.Center
@@ -159,7 +158,8 @@ fun ProductDetailsContent(
                         model = state.productDetails.image,
                         contentDescription = "Product Image",
                         modifier = Modifier
-                            .padding(30.dp)
+                            .size(250.dp)
+                            .padding(10.dp)
                             .aspectRatio(1f),
                         contentScale = ContentScale.Fit
                     )
@@ -317,7 +317,7 @@ fun ProductDetailsContent(
                         Spacer(modifier = Modifier.height(10.dp))
                         Button(
                             onClick = {
-                                viewModel.updateCart(state.productDetails, quantity = count)
+                                addToCart(state.productDetails, count)
                                 dialogState = true
                             },
                             modifier = Modifier
@@ -373,7 +373,7 @@ fun ProductDetailsContent(
                         confirmButton = {
                             TextButton(
                                 onClick = {
-                                    viewModel.changeNavigationState("cart")
+                                    changeRoute("cart")
                                     navController.navigate(StoreScreen.StoreProductCart.route)
                                     count = 1
                                     dialogState = false
@@ -423,8 +423,9 @@ fun ProductDetailsPreview() {
                 )
             )
         ),
-        viewModel = hiltViewModel(),
         navController = rememberNavController(),
+        changeRoute = {},
+        addToCart = { product, i -> }
 //        product = Product(
 //            id = 1,
 //            title = "Green Card",
