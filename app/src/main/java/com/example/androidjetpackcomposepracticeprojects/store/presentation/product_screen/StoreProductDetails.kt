@@ -210,7 +210,7 @@ fun ProductDetailsContent(
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(start = 15.dp, top = 10.dp),
+                                .padding(start = 15.dp, top = 30.dp),
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -333,9 +333,9 @@ fun ProductDetailsContent(
                             fontWeight = FontWeight.Medium,
                             fontSize = 22.sp,
                             color = FPrimaryBlack,
-                            modifier = Modifier.padding(start = 15.dp, top = 10.dp)
+                            modifier = Modifier.padding(start = 15.dp, top = 40.dp)
                         )
-                        Spacer(modifier = Modifier.height(15.dp))
+                        Spacer(modifier = Modifier.height(5.dp))
                         Text(
                             text = state.productDetails.description,
                             maxLines = 3,
