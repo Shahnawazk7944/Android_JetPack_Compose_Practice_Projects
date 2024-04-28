@@ -41,7 +41,6 @@ import com.example.androidjetpackcomposepracticeprojects.ui.theme.rubik
 
 @Composable
 fun MostInterestedProductCard(
-    modifier: Modifier = Modifier,
     product: Product,
     index: Int,
     selectedIndex: (Int) -> Unit
@@ -135,10 +134,86 @@ fun MostInterestedProductCard(
     }
 }
 
+@Composable
+fun PopularProductCard(
+    product: Product,
+    index: Int,
+    selectedIndex: (Int) -> Unit
+) {
+    Row(
+        modifier = Modifier
+            //.height(500.dp)
+            .padding(horizontal = 10.dp)
+            .clip(RoundedCornerShape(20.dp))
+            .background(FSecondaryBackgroundWhite)
+            .clickable { selectedIndex(index) },
+    ) {
+        Box(
+            modifier = Modifier
+                .size(100.dp)
+                .background(FSecondaryBackgroundWhite),
+            contentAlignment = Alignment.Center
+        ) {
+            AsyncImage(
+                model = product.image,
+                contentDescription = "Product Image",
+                modifier = Modifier
+                    .size(80.dp)
+                    .aspectRatio(1f),
+                contentScale = ContentScale.Fit
+            )
+        }
+
+
+        Spacer(modifier = Modifier.width(5.dp))
+        Box(
+            modifier = Modifier
+                .width(230.dp)
+                .height(120.dp)
+                .background(FSecondaryBackgroundWhite)
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(8.dp)
+            ) {
+                Text(
+                    text = product.title,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    fontFamily = poppins,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 16.sp,
+                    color = FPrimaryBlack  ,
+                    modifier = Modifier,
+                )
+
+                Spacer(modifier = Modifier.height(0.dp))
+                Text(
+                    text = product.category.replaceFirstChar { it.uppercase() },
+                    fontFamily = rubik,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp,
+                    color = Color.Gray
+
+                )
+                Spacer(modifier = Modifier.height(15.dp))
+                Text(
+                    text = "$ ${product.price}",
+                    fontFamily = poppins,
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 20.sp,
+                    color = FPrice
+                )
+            }
+        }
+    }
+}
+
 @Preview
 @Composable
 fun ProductContentPreview() {
-    MostInterestedProductCard(
+    PopularProductCard(
         product = Product(
             id = 1,
             title = "Green Card",
