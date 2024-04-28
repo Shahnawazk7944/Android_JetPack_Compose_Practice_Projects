@@ -80,7 +80,7 @@ fun StoreHomeScreen(
                 selected = state.route == "favourite",
                 onClick = {
                     productVM.changeNavigationState("favourite")
-                    navController.navigate(StoreScreen.StoreProfileScreen.route)
+                    navController.navigate(StoreScreen.StoreFavScreen.route)
                 },
                 icon = {
                     Icon(
@@ -113,7 +113,7 @@ fun StoreHomeScreen(
                 selected = state.route == "try",
                 onClick = {
                     productVM.changeNavigationState("try")
-                    navController.navigate(StoreScreen.StoreProfileScreen.route)
+                    navController.navigate(StoreScreen.StoreTryNow.route)
                 },
                 icon = {
                     Icon(

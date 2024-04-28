@@ -23,6 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androidjetpackcomposepracticeprojects.R
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryGreen
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.rubik
 
 @Composable
@@ -30,7 +31,7 @@ fun ProfileDetailsRowComp(
     onClick: () -> Unit,
     rowTitle:String,
     rowTitleColor:Color = MaterialTheme.colorScheme.onBackground,
-    leadingIconColor: Color = Color(0xFFFFE403),
+    leadingIconColor: Color = FPrimaryGreen,
     trailingIconState: Boolean = true,
     leadingIcon:Int
 

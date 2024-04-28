@@ -49,8 +49,9 @@ import coil.request.ImageRequest
 import coil.size.Size
 import com.example.androidjetpackcomposepracticeprojects.R
 import com.example.androidjetpackcomposepracticeprojects.quote.presentation.presentation.product_screen.components.ProfileDetailsRowComp
-import com.example.androidjetpackcomposepracticeprojects.quote.presentation.presentation.util.components.QuotesTopAppBar
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.StoreTopAppBar
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryGreen
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FSecondaryBackgroundWhite
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.rubik
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.ubuntu
 
@@ -164,7 +165,7 @@ fun StoreProfileScreen(
                 ),
                 border = BorderStroke(1.dp, color = Color.LightGray),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFFFE403),
+                    containerColor = FPrimaryGreen,
                     //contentColor = SecondaryFontColor
                 )
             ) {
@@ -178,7 +179,7 @@ fun StoreProfileScreen(
                         fontFamily = rubik,
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.background
+                        color = FSecondaryBackgroundWhite
                     )
                 }
             }
@@ -210,7 +211,8 @@ fun StoreProfileScreen(
                 rowTitle = "Logout",
                 rowTitleColor = Color.Red,
                 trailingIconState = false,
-                leadingIcon = R.drawable.logoutt
+                leadingIcon = R.drawable.logoutt,
+                leadingIconColor = Color.Red
 
             )
 

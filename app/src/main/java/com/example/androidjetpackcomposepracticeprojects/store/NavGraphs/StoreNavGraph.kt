@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.ProductCart
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.StoreCommingSoon
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.StoreProductDetails
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.StoreProductScreen
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.StoreProfileScreen
@@ -47,6 +48,12 @@ fun StoreNavGraph(
         composable(route = StoreScreen.StoreProductCart.route) {
             ProductCart(navController = navController, viewModel = viewModel)
         }
+        composable(route = StoreScreen.StoreFavScreen.route) {
+           StoreCommingSoon()
+        }
+        composable(route = StoreScreen.StoreTryNow.route) {
+           StoreCommingSoon()
+        }
     }
 }
 
@@ -54,6 +61,8 @@ sealed class StoreScreen(val route: String) {
     data object StoreHomeScreenContent : StoreScreen(route = "storeHomeScreenContent")
     data object StoreProfileScreen : StoreScreen(route = "storeProfileScreen")
     data object StoreProductCart : StoreScreen(route = "storeProductCart")
+    data object StoreFavScreen : StoreScreen(route = "storeFavScreen")
+    data object StoreTryNow : StoreScreen(route = "storeTryNow")
     data object StoreProductDetails : StoreScreen(
         route = "storeProductDetails/{productIndex}"
     ) {

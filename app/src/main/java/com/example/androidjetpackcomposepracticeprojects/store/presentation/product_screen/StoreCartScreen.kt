@@ -1,5 +1,6 @@
 package com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -144,6 +145,7 @@ fun ProductCartContent(
     }
 }
 
+@SuppressLint("DefaultLocale")
 @Composable
 fun StoreCartItem(
     cartItem: CartItem,

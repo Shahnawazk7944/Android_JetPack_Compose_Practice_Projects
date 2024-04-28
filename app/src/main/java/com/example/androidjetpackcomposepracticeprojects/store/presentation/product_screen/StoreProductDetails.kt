@@ -481,7 +481,7 @@ fun ProductDetailsContent(
                         Icon(
                             imageVector = Icons.Outlined.AddTask,
                             contentDescription = "Example Icon",
-                            tint = AzureMist,
+                            tint = FPrimaryGreen,
                             modifier = Modifier.size(50.dp)
                         )
                     }, title = {
@@ -490,7 +490,7 @@ fun ProductDetailsContent(
                             fontFamily = poppins,
                             fontWeight = FontWeight.Bold,
                             fontSize = 25.sp,
-                            color = AzureMist,
+                            color = FPrimaryGreen,
                             textAlign = TextAlign.Center
                         )
                     }, onDismissRequest = {
