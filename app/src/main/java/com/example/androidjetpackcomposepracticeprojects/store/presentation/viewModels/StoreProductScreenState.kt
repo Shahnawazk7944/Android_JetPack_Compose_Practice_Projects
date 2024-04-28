@@ -5,6 +5,7 @@ import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Prod
 
 data class ProductScreenState(
     val isLoading : Boolean = false,
+    val selectedCategory: String = "jewelery",
     val product: List<Product> = emptyList(),
     val error: String? = null
 )

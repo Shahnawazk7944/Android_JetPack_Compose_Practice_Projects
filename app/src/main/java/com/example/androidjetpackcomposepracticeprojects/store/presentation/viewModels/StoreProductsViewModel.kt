@@ -50,4 +50,12 @@ class ProductsViewModel @Inject constructor(
         }
     }
 
+
+    fun sortMostInterestedProducts(selectedCategory: String){
+        _state.update {
+            it.copy(
+                selectedCategory = selectedCategory
+            )
+        }
+    }
 }

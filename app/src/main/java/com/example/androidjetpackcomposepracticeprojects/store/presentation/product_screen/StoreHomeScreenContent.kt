@@ -82,15 +82,18 @@ internal fun StoreProductScreen(
     productViewModel: StoreProductDetailsViewModel,
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    ProductContent(state = state, navController = navController) {
-        productViewModel.changeNavigationState("")
-    }
+    ProductContent(
+        state = state,
+        navController = navController,
+        onClick =  { productViewModel.changeNavigationState("") },
+        sortMostInterestedProducts = {viewModel.sortMostInterestedProducts(it)}
+    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun ProductContent(
-    state: ProductScreenState, navController: NavHostController, onClick: (String) -> Unit
+    state: ProductScreenState, navController: NavHostController, onClick: (String) -> Unit, sortMostInterestedProducts: (String) -> Unit
 ) {
     val specialOfferImages = listOf(
         painterResource(id = R.drawable.sp0),
@@ -107,8 +110,8 @@ fun ProductContent(
         "25% Discount",
     )
     val productsCategory = listOf(
-        "men's clothing",
         "jewelery",
+        "men's clothing",
         "electronics",
         "women's clothing",
     )
@@ -172,8 +175,12 @@ fun ProductContent(
             ) {
                 items(productsCategory.size) { index ->
                     FSortMostInterestedProductButton(
+                        state =state,
                         categoryName = productsCategory[index],
-                        painter = painterResource(id = R.drawable.back)
+                        painter = painterResource(id = R.drawable.back),
+                        selectedCategory = {
+                            sortMostInterestedProducts(it)
+                        }
                     )
                 }
             }
@@ -472,11 +479,13 @@ fun FSpecialOffer(
 
 @Composable
 fun FSortMostInterestedProductButton(
+    state: ProductScreenState,
     categoryName: String,
-    painter: Painter
+    painter: Painter,
+    selectedCategory: (String) -> Unit
 ) {
     Button(
-        onClick = { },
+        onClick = { selectedCategory(categoryName) },
         modifier = Modifier
             .height(40.dp)
             .padding(0.dp),
@@ -486,8 +495,8 @@ fun FSortMostInterestedProductButton(
             pressedElevation = 0.dp
         ),
         colors = ButtonDefaults.buttonColors(
-            containerColor = FPrimaryGreen,
-            contentColor = FSecondaryBackgroundWhite,
+            containerColor =if ( state.selectedCategory == categoryName) FPrimaryGreen else FSecondaryBackgroundWhite ,
+            contentColor = if ( state.selectedCategory == categoryName) FSecondaryBackgroundWhite else FPrimaryBlack ,
         )
     ) {
         Row {
@@ -496,7 +505,7 @@ fun FSortMostInterestedProductButton(
                 contentDescription = null,
                 modifier = Modifier
                     .size(20.dp),
-                tint = FSecondaryBackgroundWhite
+                //tint = FSecondaryBackgroundWhite
             )
             Spacer(modifier = Modifier.width(10.dp))
             Text(
