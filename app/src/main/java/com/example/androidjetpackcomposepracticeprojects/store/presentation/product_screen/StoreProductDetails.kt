@@ -358,7 +358,6 @@ fun ProductDetailsContent(
                             .height(150.dp)
                             .clip(RoundedCornerShape(20.dp, 20.dp, 0.dp, 0.dp))
                             .background(FSecondaryBackgroundWhite)
-
                     ) {
                         Row(
                             modifier = Modifier
@@ -379,16 +378,19 @@ fun ProductDetailsContent(
                                     horizontalArrangement = Arrangement.SpaceBetween,
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    IconButton(onClick = {
-                                        if (count != 1) {
-                                            count--
-                                        }
-                                    }) {
+                                    IconButton(
+                                        modifier = Modifier.scale(1.5f),
+                                        onClick = {
+                                            if (count != 1) {
+                                                count--
+                                            }
+                                        }) {
                                         Icon(
-                                            painter = painterResource(R.drawable.decrease),
+                                            painter = painterResource(R.drawable.decrease2),
                                             contentDescription = "null",
+                                            tint = Color.Unspecified,
                                             modifier = Modifier
-                                                .size(25.dp)
+                                                .size(22.dp)
                                                 .weight(1f)
                                         )
                                     }
@@ -397,20 +399,23 @@ fun ProductDetailsContent(
                                         fontFamily = poppins,
                                         fontWeight = FontWeight.Normal,
                                         fontSize = 20.sp,
-                                        color = AzureMist,
+                                        color = FPrimaryBlack,
                                         textAlign = TextAlign.Center,
                                         modifier = Modifier.weight(2f)
                                     )
-                                    IconButton(onClick = {
-                                        if (count >= 1) {
-                                            count++
-                                        }
-                                    }) {
+                                    IconButton(
+                                        modifier = Modifier.scale(1.5f),
+                                        onClick = {
+                                            if (count >= 1) {
+                                                count++
+                                            }
+                                        }) {
                                         Icon(
-                                            painter = painterResource(R.drawable.increase),
+                                            painter = painterResource(R.drawable.increase2),
                                             contentDescription = "null",
+                                            tint = Color.Unspecified,
                                             modifier = Modifier
-                                                .size(25.dp)
+                                                .size(22.dp)
                                                 .weight(1f)
                                         )
                                     }
@@ -421,12 +426,12 @@ fun ProductDetailsContent(
                                 modifier = Modifier.padding(start = 15.dp, top = 10.dp)
                             ) {
                                 Text(
-                                text = "Total :",
-                                fontFamily = poppins,
-                                fontWeight = FontWeight.Medium,
-                                fontSize = 20.sp,
-                                color = FPrimaryBlack,
-                            )
+                                    text = "Total :",
+                                    fontFamily = poppins,
+                                    fontWeight = FontWeight.Medium,
+                                    fontSize = 20.sp,
+                                    color = FPrimaryBlack,
+                                )
                                 Box(modifier = Modifier.width(120.dp)) {
                                     Text(
                                         text = " $${
