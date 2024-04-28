@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.pager.HorizontalPager
@@ -154,12 +155,10 @@ fun ProductContent(
             }
 
             Spacer(modifier = Modifier.height(15.dp))
-            LazyVerticalStaggeredGrid(
+            LazyRow(
                 //modifier = Modifier.padding(padding),
-                columns = StaggeredGridCells.Fixed(2),
                 contentPadding = PaddingValues(5.dp),
-                horizontalArrangement = Arrangement.spacedBy(10.dp),
-                verticalItemSpacing = 5.dp
+                horizontalArrangement = Arrangement.spacedBy(40.dp),
             ) {
 
                 items(state.product.size) { index ->
