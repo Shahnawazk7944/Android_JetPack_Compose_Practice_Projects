@@ -1,6 +1,7 @@
 package com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -41,14 +42,17 @@ import com.example.androidjetpackcomposepracticeprojects.ui.theme.rubik
 @Composable
 fun MostInterestedProductCard(
     modifier: Modifier = Modifier,
-    product: Product
+    product: Product,
+    index: Int,
+    selectedIndex: (Int) -> Unit
 ) {
     Column(
         modifier = Modifier
             //.height(500.dp)
             .padding(horizontal = 10.dp)
             .clip(RoundedCornerShape(20.dp))
-            .background(FSecondaryBackgroundWhite),
+            .background(FSecondaryBackgroundWhite)
+            .clickable { selectedIndex(index) },
     ) {
         Box(
             modifier = Modifier
@@ -146,6 +150,7 @@ fun ProductContentPreview() {
                 rate = 4.2,
                 count = 564
             )
-        )
-    )
+        ),
+        index = 4,
+    ){ it }
 }

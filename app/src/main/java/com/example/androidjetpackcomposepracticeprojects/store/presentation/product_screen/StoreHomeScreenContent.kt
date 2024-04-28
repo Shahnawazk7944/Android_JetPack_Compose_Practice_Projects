@@ -191,24 +191,25 @@ fun ProductContent(
             Spacer(modifier = Modifier.height(15.dp))
             LazyRow(
                 contentPadding = PaddingValues(horizontal = 10.dp),
-               // horizontalArrangement = Arrangement.spacedBy(20.dp),
+                // horizontalArrangement = Arrangement.spacedBy(20.dp),
             ) {
 
                 items(state.product.size) { index ->
                     val product = state.product[index]
-                    Box(Modifier.clickable {
-                        onClick("")
-                        navController.navigate(
-                            StoreScreen.StoreProductDetails.passToProductDetailsScree(
-                                index + 1
-                            )
-                        ) // Navigate with index
-                    }) {
-                        if (state.selectedCategory == state.product[index].category) {
-                            MostInterestedProductCard(product = product)
-                        }
+                    if (state.selectedCategory == state.product[index].category) {
+                        MostInterestedProductCard(
+                            product = product,
+                            index = index,
+                            selectedIndex = {
+                                onClick("")
+                                navController.navigate(
+                                    StoreScreen.StoreProductDetails.passToProductDetailsScree(
+                                        it + 1
+                                    )
+                                )
+                            }
+                        )
                     }
-
                 }
             }
 
@@ -230,7 +231,18 @@ fun ProductContent(
                             )
                         ) // Navigate with index
                     }) {
-                        MostInterestedProductCard(product = product)
+                        MostInterestedProductCard(
+                            product = product,
+                            index = index,
+                            selectedIndex = {
+                                onClick("")
+                                navController.navigate(
+                                    StoreScreen.StoreProductDetails.passToProductDetailsScree(
+                                        it + 1
+                                    )
+                                )
+                            }
+                        )
                     }
 
                 }
