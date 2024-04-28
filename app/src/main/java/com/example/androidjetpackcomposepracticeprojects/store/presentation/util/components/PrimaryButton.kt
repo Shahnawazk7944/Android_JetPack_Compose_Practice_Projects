@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -36,6 +37,7 @@ fun PrimaryButton(
     onClick: () -> Unit,
     eventText: String,
     leadingIconComposable: @Composable () -> Unit,
+    shape: Shape = RoundedCornerShape(15.dp),
     modifier: Modifier
 ) {
     Button(
@@ -45,7 +47,7 @@ fun PrimaryButton(
             .height(75.dp)
             .padding(10.dp),
         //.clip(RoundedCornerShape(50.dp))
-        shape = RoundedCornerShape(15.dp),
+        shape = shape,
         elevation = ButtonDefaults.buttonElevation(
             defaultElevation = 4.dp,
             pressedElevation = 2.dp

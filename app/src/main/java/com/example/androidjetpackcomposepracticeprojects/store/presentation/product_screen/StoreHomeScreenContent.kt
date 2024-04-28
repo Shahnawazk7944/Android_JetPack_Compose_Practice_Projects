@@ -1,5 +1,6 @@
 package com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -16,9 +17,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PageSize
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -38,11 +44,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -50,6 +59,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.example.androidjetpackcomposepracticeprojects.R
 import com.example.androidjetpackcomposepracticeprojects.store.NavGraphs.StoreScreen
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.PageIndicator
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.ProductCard
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.LoadingDialog
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductScreenState
@@ -74,11 +84,30 @@ internal fun StoreProductScreen(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun ProductContent(
     state: ProductScreenState, navController: NavHostController, onClick: (String) -> Unit
 ) {
+    val specialOfferImages = listOf(
+        painterResource(id = R.drawable.sp0),
+        painterResource(id = R.drawable.sp1),
+        painterResource(id = R.drawable.sp2),
+        painterResource(id = R.drawable.sp3),
+        painterResource(id = R.drawable.sp4),
+    )
+    val specialOfferDiscounts = listOf(
+        "45% Discount",
+        "30% Discount",
+        "65% Discount",
+        "40% Discount",
+        "25% Discount",
+    )
+    val pagerState = rememberPagerState(
+        pageCount = { specialOfferDiscounts.size },
+    )
+
+
     LoadingDialog(isLoading = state.isLoading)
     Scaffold(
         containerColor = FPrimaryBackground,
@@ -89,10 +118,42 @@ fun ProductContent(
                 .fillMaxSize()
                 .padding(padding)
         ) {
-            ProfileSection()
-
+            FProfileSection()
             FSearchbar()
 
+            Text(
+                text = "Special Offers",
+                fontFamily = poppins,
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                color = FPrimaryBlack,
+                modifier = Modifier.padding(top = 20.dp, start = 20.dp)
+            )
+
+            Spacer(modifier = Modifier.height(15.dp))
+            HorizontalPager(
+                modifier = Modifier,
+                contentPadding = PaddingValues(horizontal = 20.dp),
+                state = pagerState,
+                pageSize = PageSize.Fixed(300.dp),
+                pageSpacing = 20.dp,
+                verticalAlignment = Alignment.Bottom,
+            ) { page ->
+                FSpecialOffer(
+                    discount = specialOfferDiscounts[page],
+                    painter = specialOfferImages[page]
+                )
+
+            }
+            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                PageIndicator(
+                    pageCount = specialOfferImages.size,
+                    currentPage = pagerState.currentPage,
+                    modifier = Modifier.padding(10.dp)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(15.dp))
             LazyVerticalStaggeredGrid(
                 //modifier = Modifier.padding(padding),
                 columns = StaggeredGridCells.Fixed(2),
@@ -122,7 +183,7 @@ fun ProductContent(
 }
 
 @Composable
-fun ProfileSection(
+fun FProfileSection(
 ) {
     Card(
         modifier = Modifier
@@ -146,9 +207,11 @@ fun ProfileSection(
                 horizontalArrangement = Arrangement.Center
             ) {
                 Spacer(modifier = Modifier.width(10.dp))
-                Box(modifier = Modifier
-                    .weight(.5f)
-                    .scale(1.5f), contentAlignment = Alignment.Center) {
+                Box(
+                    modifier = Modifier
+                        .weight(.5f)
+                        .scale(1.5f), contentAlignment = Alignment.Center
+                ) {
                     Image(
                         painter = painterResource(id = R.drawable.tem_profile2),
                         contentDescription = null,
@@ -199,7 +262,7 @@ fun ProfileSection(
                         painter = painterResource(R.drawable.bell),
                         contentDescription = null,
                         modifier = Modifier
-                            .size(35.dp)
+                            .size(25.dp)
                             .weight(4f),
                         tint = Color.Unspecified
                     )
@@ -212,13 +275,14 @@ fun ProfileSection(
 }
 
 @Composable
-fun FSearchbar(){
+fun FSearchbar() {
     var searchText by remember {
         mutableStateOf("")
     }
     Column(
         modifier = Modifier
-            .padding(10.dp).padding(horizontal = 15.dp)
+            .padding(10.dp)
+            .padding(horizontal = 10.dp)
     ) {
         Spacer(modifier = Modifier.height(0.dp))
         OutlinedTextField(
@@ -269,7 +333,7 @@ fun FSearchbar(){
                 )
             },
             trailingIcon = {
-                IconButton(onClick = {  }) {
+                IconButton(onClick = { }) {
                     Icon(
                         painter = painterResource(id = R.drawable.filt),
                         contentDescription = "filter icon",
@@ -281,4 +345,88 @@ fun FSearchbar(){
         )
 
     }
+}
+
+@Composable
+fun FSpecialOffer(
+    discount: String,
+    painter: Painter
+) {
+    Card(
+        modifier = Modifier
+            .width(320.dp)
+            .height(150.dp),
+        shape = RoundedCornerShape(15.dp)
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            //contentAlignment = Alignment.CenterStart
+        ) {
+            Image(
+                painter = painter,
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentScale = ContentScale.Crop,
+                alignment = Alignment.Center,
+            )
+            Column(
+                modifier = Modifier
+                    .padding(start = 10.dp, top = 10.dp)
+                    .align(Alignment.TopStart)
+            ) {
+
+                Text(
+                    text = discount,
+                    fontFamily = poppins,
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = FSecondaryBackgroundWhite
+                )
+                Text(
+                    text = "For a cozy yellow set!",
+                    fontFamily = ubuntu,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Light,
+                    color = FSecondaryBackgroundWhite
+                )
+                Spacer(modifier = Modifier.height(30.dp))
+                Button(
+                    onClick = { },
+                    modifier = Modifier
+                        .height(40.dp)
+                        .padding(0.dp),
+                    shape = RoundedCornerShape(18.dp),
+                    elevation = ButtonDefaults.buttonElevation(
+                        defaultElevation = 4.dp,
+                        pressedElevation = 2.dp
+                    ),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = FPrimaryGreen,
+                        contentColor = FSecondaryBackgroundWhite,
+                    )
+                ) {
+                    Text(
+                        "Buy Now",
+                        fontFamily = poppins,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium,
+                        textAlign = TextAlign.Center
+                    )
+                }
+
+            }
+
+        }
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun Previews() {
+    FSpecialOffer(
+        painter = painterResource(id = R.drawable.sp0),
+        discount = "25% Discount"
+    )
 }
