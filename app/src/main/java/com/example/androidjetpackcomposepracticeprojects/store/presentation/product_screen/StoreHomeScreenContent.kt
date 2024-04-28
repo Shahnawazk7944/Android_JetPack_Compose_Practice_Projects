@@ -16,14 +16,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
-import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -60,15 +60,17 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.example.androidjetpackcomposepracticeprojects.R
 import com.example.androidjetpackcomposepracticeprojects.store.NavGraphs.StoreScreen
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.MostInterestedProductCard
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.PageIndicator
-import com.example.androidjetpackcomposepracticeprojects.store.presentation.product_screen.components.ProductCard
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.LoadingDialog
+import com.example.androidjetpackcomposepracticeprojects.store.presentation.util.components.PrimaryButton
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductScreenState
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductsViewModel
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.StoreProductDetailsViewModel
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBackground
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBlack
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryGreen
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FRating
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FSecondaryBackgroundWhite
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.poppins
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.ubuntu
@@ -104,6 +106,12 @@ fun ProductContent(
         "40% Discount",
         "25% Discount",
     )
+    val productsCategory = listOf(
+        "men's clothing",
+        "jewelery",
+        "electronics",
+        "women's clothing",
+    )
     val pagerState = rememberPagerState(
         pageCount = { specialOfferDiscounts.size },
     )
@@ -112,25 +120,25 @@ fun ProductContent(
     LoadingDialog(isLoading = state.isLoading)
     Scaffold(
         containerColor = FPrimaryBackground,
+        modifier = Modifier
     ) { padding ->
 
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
+                .verticalScroll(rememberScrollState())
         ) {
+            //Top App bar Profile section
             FProfileSection()
+
+            //search bar
             FSearchbar()
 
-            Text(
-                text = "Special Offers",
-                fontFamily = poppins,
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold,
-                color = FPrimaryBlack,
-                modifier = Modifier.padding(top = 20.dp, start = 20.dp)
-            )
+            //Special offer Text
+            FProductCategoryName(categoryName = "Special Offers", expandType = "")
 
+            //Pager For Special Offers
             Spacer(modifier = Modifier.height(15.dp))
             HorizontalPager(
                 modifier = Modifier,
@@ -146,6 +154,8 @@ fun ProductContent(
                 )
 
             }
+
+            //Pager Indicator
             Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
                 PageIndicator(
                     pageCount = specialOfferImages.size,
@@ -154,11 +164,26 @@ fun ProductContent(
                 )
             }
 
+            //Sort Most Interested Products
+            Spacer(modifier = Modifier.height(10.dp))
+            LazyRow(
+                contentPadding = PaddingValues(horizontal = 20.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                items(productsCategory.size) { index ->
+                    FSortMostInterestedProductButton(
+                        categoryName = productsCategory[index],
+                        painter = painterResource(id = R.drawable.back)
+                    )
+                }
+            }
+
+            //Most Interested Products
+            FProductCategoryName(categoryName = "Popular")
             Spacer(modifier = Modifier.height(15.dp))
             LazyRow(
-                //modifier = Modifier.padding(padding),
-                contentPadding = PaddingValues(5.dp),
-                horizontalArrangement = Arrangement.spacedBy(40.dp),
+                contentPadding = PaddingValues(horizontal = 20.dp),
+                horizontalArrangement = Arrangement.spacedBy(20.dp),
             ) {
 
                 items(state.product.size) { index ->
@@ -171,7 +196,31 @@ fun ProductContent(
                             )
                         ) // Navigate with index
                     }) {
-                        ProductCard(product = product)
+                        MostInterestedProductCard(product = product)
+                    }
+
+                }
+            }
+
+            //Popular Products
+            FProductCategoryName(categoryName = "Popular")
+            Spacer(modifier = Modifier.height(15.dp))
+            LazyRow(
+                contentPadding = PaddingValues(horizontal = 20.dp),
+                horizontalArrangement = Arrangement.spacedBy(20.dp),
+            ) {
+
+                items(state.product.size) { index ->
+                    val product = state.product[index]
+                    Box(Modifier.clickable {
+                        onClick("")
+                        navController.navigate(
+                            StoreScreen.StoreProductDetails.passToProductDetailsScree(
+                                index + 1
+                            )
+                        ) // Navigate with index
+                    }) {
+                        MostInterestedProductCard(product = product)
                     }
 
                 }
@@ -421,11 +470,83 @@ fun FSpecialOffer(
     }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun Previews() {
-    FSpecialOffer(
-        painter = painterResource(id = R.drawable.sp0),
-        discount = "25% Discount"
-    )
+fun FSortMostInterestedProductButton(
+    categoryName: String,
+    painter: Painter
+) {
+    Button(
+        onClick = { },
+        modifier = Modifier
+            .height(40.dp)
+            .padding(0.dp),
+        shape = RoundedCornerShape(12.dp),
+        elevation = ButtonDefaults.buttonElevation(
+            defaultElevation = 0.dp,
+            pressedElevation = 0.dp
+        ),
+        colors = ButtonDefaults.buttonColors(
+            containerColor = FPrimaryGreen,
+            contentColor = FSecondaryBackgroundWhite,
+        )
+    ) {
+        Row {
+            Icon(
+                painter = painter,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(20.dp),
+                tint = FSecondaryBackgroundWhite
+            )
+            Spacer(modifier = Modifier.width(10.dp))
+            Text(
+                categoryName.replaceFirstChar { it.uppercase() },
+                fontFamily = poppins,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Medium,
+                textAlign = TextAlign.Center
+            )
+        }
+
+    }
 }
+
+
+@Composable
+fun FProductCategoryName(
+    categoryName: String,
+    expandType: String = "View All"
+) {
+    Row(
+        modifier = Modifier
+            .padding(top = 20.dp)
+            .padding(horizontal = 20.dp)
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Text(
+            text = categoryName,
+            fontFamily = poppins,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold,
+            color = FPrimaryBlack,
+        )
+        Text(
+            text = expandType,
+            fontFamily = poppins,
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Normal,
+            color = FRating,
+        )
+    }
+}
+
+
+//
+//@Composable
+//fun Previews() {
+//    FSpecialOffer(
+//        painter = painterResource(id = R.drawable.sp0),
+//        discount = "25% Discount"
+//    )
+//}

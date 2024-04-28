@@ -32,30 +32,28 @@ import coil.compose.AsyncImage
 import com.example.androidjetpackcomposepracticeprojects.R
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Product
 import com.example.androidjetpackcomposepracticeprojects.store.domain.model.Rating
-import com.example.androidjetpackcomposepracticeprojects.ui.theme.ChocolateBrown
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrice
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBlack
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.FSecondaryBackgroundWhite
-import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_32
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.poppins
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.rubik
 
 @Composable
-fun ProductCard(
+fun MostInterestedProductCard(
     modifier: Modifier = Modifier,
     product: Product
 ) {
     Column(
         modifier = Modifier
             //.height(500.dp)
-            .padding(5.dp)
+            .padding(0.dp)
             .clip(RoundedCornerShape(20.dp))
             .background(FSecondaryBackgroundWhite),
     ) {
         Box(
             modifier = Modifier
-                .width(200.dp)
-                .height(100.dp)
+                .width(220.dp)
+                .height(120.dp)
                 .background(FSecondaryBackgroundWhite),
             contentAlignment = Alignment.Center
         ) {
@@ -68,11 +66,13 @@ fun ProductCard(
                 contentScale = ContentScale.Fit
             )
         }
+
+
         Spacer(modifier = Modifier.height(5.dp))
         Box(
             modifier = Modifier
-                .width(200.dp)
-                .height(150.dp)
+                .width(220.dp)
+                .height(160.dp)
                 .background(FSecondaryBackgroundWhite)
         ) {
             Column(
@@ -118,12 +118,12 @@ fun ProductCard(
                     color = Color.Gray
 
                 )
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(25.dp))
                 Text(
                     text = "$ ${product.price}",
                     fontFamily = poppins,
                     fontWeight = FontWeight.Medium,
-                    fontSize = 18.sp,
+                    fontSize = 20.sp,
                     color = FPrice
                 )
             }
@@ -134,7 +134,7 @@ fun ProductCard(
 @Preview
 @Composable
 fun ProductContentPreview() {
-    ProductCard(
+    MostInterestedProductCard(
         product = Product(
             id = 1,
             title = "Green Card",
