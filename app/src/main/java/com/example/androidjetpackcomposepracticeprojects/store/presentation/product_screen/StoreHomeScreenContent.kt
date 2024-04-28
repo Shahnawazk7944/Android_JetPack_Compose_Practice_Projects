@@ -117,6 +117,13 @@ fun ProductContent(
         "electronics",
         "women's clothing",
     )
+    val sortCategoryImages = listOf(
+        painterResource(id = R.drawable.jewelry),
+        painterResource(id = R.drawable.mens_clothing),
+        painterResource(id = R.drawable.electronics),
+        painterResource(id = R.drawable.womens_clothing),
+    )
+
     val pagerState = rememberPagerState(
         pageCount = { specialOfferDiscounts.size },
     )
@@ -178,7 +185,7 @@ fun ProductContent(
                     FSortMostInterestedProductButton(
                         state = state,
                         categoryName = productsCategory[index],
-                        painter = painterResource(id = R.drawable.back),
+                        painter = sortCategoryImages[index],
                         selectedCategory = {
                             sortMostInterestedProducts(it)
                         }
@@ -520,7 +527,7 @@ fun FSortMostInterestedProductButton(
                 painter = painter,
                 contentDescription = null,
                 modifier = Modifier
-                    .size(20.dp),
+                    .size(30.dp),
                 //tint = FSecondaryBackgroundWhite
             )
             Spacer(modifier = Modifier.width(10.dp))
