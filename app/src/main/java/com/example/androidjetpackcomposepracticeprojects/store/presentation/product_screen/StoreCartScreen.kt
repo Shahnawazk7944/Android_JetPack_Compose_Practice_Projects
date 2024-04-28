@@ -52,6 +52,11 @@ import com.example.androidjetpackcomposepracticeprojects.store.presentation.view
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.ProductDetailsScreenState
 import com.example.androidjetpackcomposepracticeprojects.store.presentation.viewModels.StoreProductDetailsViewModel
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.ChocolateBrown
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrice
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBackground
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryBlack
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FPrimaryGreen
+import com.example.androidjetpackcomposepracticeprojects.ui.theme.FSecondaryBackgroundWhite
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.RootBeer
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.gradient_32
 import com.example.androidjetpackcomposepracticeprojects.ui.theme.poppins
@@ -76,6 +81,7 @@ fun ProductCartContent(
     onClick: (Int) -> Unit
 ) {
     Scaffold(
+        containerColor = FPrimaryBackground,
         modifier = Modifier.fillMaxSize(),
         topBar = {
             StoreTopAppBar(
@@ -157,8 +163,10 @@ fun StoreCartItem(
             .fillMaxWidth()
             .height(210.dp)
             .clip(RoundedCornerShape(20.dp))
-            .background(Color.White),
+            .background(FSecondaryBackgroundWhite),
     ) {
+
+        //-------------------Product Image
         Box(
             modifier = Modifier
                 .fillMaxHeight()
@@ -180,12 +188,15 @@ fun StoreCartItem(
             )
         }
         Spacer(modifier = Modifier.width(5.dp))
+
+
+        //-------------------Product Details
         Box(
             modifier = Modifier
                 .fillMaxHeight()
                 .fillMaxWidth()
                 //.height(150.dp)
-                .background(Color(0x407D7986))
+                .background(FSecondaryBackgroundWhite)
         ) {
             Column(
                 modifier = Modifier
@@ -195,10 +206,10 @@ fun StoreCartItem(
             ) {
                 Text(
                     text = cartItem.product.category.replaceFirstChar { it.uppercase() },
-                    fontFamily = rubik,
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 12.sp,
-                    color = Color.Gray
+                    fontFamily = poppins,
+                    fontWeight = FontWeight.Normal,
+                    fontSize = 14.sp,
+                    color = FPrimaryBlack
 
                 )
                 Spacer(modifier = Modifier.height(2.dp))
@@ -207,18 +218,18 @@ fun StoreCartItem(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                     fontFamily = poppins,
-                    fontWeight = FontWeight.Medium,
+                    fontWeight = FontWeight.Bold,
                     fontSize = 14.sp,
-                    color = ChocolateBrown,
+                    color = FPrimaryGreen,
 
                     )
                 Spacer(modifier = Modifier.height(10.dp))
                 Text(
                     buildAnnotatedString {
-                        withStyle(style = SpanStyle(RootBeer)) {
+                        withStyle(style = SpanStyle(FPrimaryBlack)) {
                             append("Price :       ")
                         }
-                        withStyle(style = SpanStyle(color = gradient_32)) {
+                        withStyle(style = SpanStyle(color = FPrice)) {
                             append("\$${cartItem.product.price}")
                         }
                     },
@@ -231,10 +242,10 @@ fun StoreCartItem(
                 Spacer(modifier = Modifier.height(2.dp))
                 Text(
                     buildAnnotatedString {
-                        withStyle(style = SpanStyle(RootBeer)) {
+                        withStyle(style = SpanStyle(FPrimaryBlack)) {
                             append("Quantity :                   ")
                         }
-                        withStyle(style = SpanStyle(color = gradient_32)) {
+                        withStyle(style = SpanStyle(color = FPrice)) {
                             append("${cartItem.quantity}")
                         }
                     },
@@ -249,10 +260,10 @@ fun StoreCartItem(
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     buildAnnotatedString {
-                        withStyle(style = SpanStyle(RootBeer)) {
+                        withStyle(style = SpanStyle(FPrimaryBlack)) {
                             append("Total Price :     ")
                         }
-                        withStyle(style = SpanStyle(color = gradient_32)) {
+                        withStyle(style = SpanStyle(color = FPrice)) {
                             append(
                                 "\$ ${
                                     String.format(
