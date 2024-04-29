@@ -215,7 +215,7 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 
 
 ### FurnitureAppTask:
-<div align="center"><video src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/d2df08b1-1e82-4bb3-917c-c8c044e29695" height="400" ></video></div>
+<div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/d53af617-2a1c-49aa-956c-89a5854e4c80" height="400" ></video></div>
 <br><br>
 <p align="center">
 <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/b8b51418-b898-41ac-811d-2e377779cd98" width="220" height="400" >&nbsp;&nbsp;
@@ -259,9 +259,6 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 
 
 <!-- Practice stuff-->
-
-
-
 
 
 
