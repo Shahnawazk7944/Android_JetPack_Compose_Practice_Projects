@@ -196,6 +196,24 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 ### StoreAppTask:
 <div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/38c8eb83-b1d1-4f69-82a2-218d3e557914" height="400" ></video></div>
 
+### MusicPlayerAppTask:
+<div align="center"><video src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/d2df08b1-1e82-4bb3-917c-c8c044e29695" height="400" ></video></div>
+<br><br>
+<p align="center">
+<img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/54e500f9-cd0a-491d-b226-f78644f219fa" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/511253b9-2a33-45be-baa3-3fdcee749f51" width="220" height="400" >&nbsp;&nbsp;
+  <img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/b3bf00a4-5858-4081-97e9-e23f2a088afb" width="220" height="400" >
+</p>
+<br><br>
+<p align="center">
+<img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/7033791f-2827-4018-870c-243d05492d8e" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/9d803fd7-524f-4bbc-a2ac-6156f7be8658" width="220" height="400" >&nbsp;&nbsp;
+  <img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/054296e3-0cda-4e1b-bdd6-ee434e7b09bb" width="220" height="400" >
+</p>
+
+
+
+
 <!-- 
 <div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/fbd31533-233b-4a57-96d7-9310a8f14d34" height="400" ></video></div>
 -->
@@ -204,14 +222,6 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 
 <!-- Practice stuff-->
 
-
-
-
-<p align="center">
-<p align="center"><img src="" width="220" height="400" ></p>&nbsp;&nbsp;
-<p align="center"><img src="" width="220" height="400" ></p>&nbsp;&nbsp;
-<p align="center"><img src="" width="220" height="400" ></p></p>
-<div align="center"><video src="" height="400" ></video></div>
 
 
 
