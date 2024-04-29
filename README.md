@@ -196,6 +196,62 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 ### StoreAppTask:
 <div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/38c8eb83-b1d1-4f69-82a2-218d3e557914" height="400" ></video></div>
 
+### MusicPlayerAppTask:
+<div align="center"><video src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/d2df08b1-1e82-4bb3-917c-c8c044e29695" height="400" ></video></div>
+<br><br>
+<p align="center">
+<img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/54e500f9-cd0a-491d-b226-f78644f219fa" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/511253b9-2a33-45be-baa3-3fdcee749f51" width="220" height="400" >&nbsp;&nbsp;
+  <img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/b3bf00a4-5858-4081-97e9-e23f2a088afb" width="220" height="400" >
+</p>
+<br><br>
+<p align="center">
+<img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/7033791f-2827-4018-870c-243d05492d8e" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/9d803fd7-524f-4bbc-a2ac-6156f7be8658" width="220" height="400" >&nbsp;&nbsp;
+  <img src="https://github.com/Shahnawazk7944/Music_Player_Task/assets/74444644/054296e3-0cda-4e1b-bdd6-ee434e7b09bb" width="220" height="400" >
+</p>
+
+
+
+
+### FurnitureAppTask:
+<div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/d53af617-2a1c-49aa-956c-89a5854e4c80" height="400" ></video></div>
+<br><br>
+<p align="center">
+<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/b8b51418-b898-41ac-811d-2e377779cd98" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/a259f186-40eb-4c40-9132-ce1264bfff9c" width="220" height="400" >&nbsp;&nbsp;
+  <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/9bd6de65-02ad-45be-8dc4-68bee9e36cfc" width="220" height="400" >
+</p>
+<br><br>
+<p align="center">
+<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/b27fb1bd-d980-4a51-995f-39d0470a7ff2" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/9d92e167-c36c-42c9-ad9e-4c850bc4d0fb" width="220" height="400" >&nbsp;&nbsp;
+  <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/9149c6bc-2ae7-4510-91d1-3022f5c1e204" width="220" height="400" >
+</p>
+<p align="center">
+<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/f851fc9e-fe88-48ae-9ba7-9601107e7989" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/116c005a-fc0d-48c3-916a-bbd762d680ec" width="220" height="400" >&nbsp;&nbsp;
+  <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/6752bf3b-20a8-432c-ba5a-9d6f49790007" width="220" height="400" >
+</p>
+<br><br>
+<p align="center">
+<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/5f2590cd-21e1-43d7-b960-db515f80145e" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/1704f888-4d6d-4f40-a52f-18c094444693" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/cbbcba6e-9c91-4654-a955-e8fc809434d3" width="220" height="400" >
+</p>
+<br><br>
+<p align="center">
+<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/5ff9227e-e78b-43be-99fc-8a272d11c4fc" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/118e7f2f-d104-40be-aa09-ad9576522a94" width="220" height="400" >&nbsp;&nbsp;
+  <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/2519ea31-0a61-49c0-b30f-2b70bd552bbe" width="220" height="400" >
+</p>
+<br><br>
+<p align="center">
+  <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/867ca65d-22a5-40c2-a8f4-9f5d5920430d" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/4980c2ae-44ca-4ec5-8c3e-2a4a2bc6c8b5" width="220" height="400" >&nbsp;&nbsp;
+ <img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/739e6368-3eab-46c0-b659-fa2430f670a5" width="220" height="400" >
+</p>
+
 <!-- 
 <div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/fbd31533-233b-4a57-96d7-9310a8f14d34" height="400" ></video></div>
 -->
@@ -203,17 +259,6 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 
 
 <!-- Practice stuff-->
-
-
-
-
-<p align="center">
-<p align="center"><img src="" width="220" height="400" ></p>&nbsp;&nbsp;
-<p align="center"><img src="" width="220" height="400" ></p>&nbsp;&nbsp;
-<p align="center"><img src="" width="220" height="400" ></p></p>
-<div align="center"><video src="" height="400" ></video></div>
-
-
 
 
 
