@@ -343,6 +343,9 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 ### CCCommunityChats:
 <div align="center"><video src="https://github.com/user-attachments/assets/06b3d587-3d0d-4a6f-99e9-952e999cb3a3" height="400" ></video></div>
 
+<br><br>
+### Za_Zoo_RefreshmentFinderTask:
+<div align="center"><video src="https://github.com/user-attachments/assets/748bb704-b020-4bb1-a09a-c7ff4156cd92" height="400" ></video></div>
 
 <br><br>
 ### LonaConnectAppTask:
