@@ -38,36 +38,18 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 
 </br>
 <p align="center">
-<img src="app/src/main/res/drawable/text_field_screenshot.png" width="220" height="400">&nbsp;&nbsp;
-<img src="app/src/main/res/drawable/google_button_login.gif" width="220" height="400" >&nbsp;&nbsp;
-<img src="app/src/main/res/drawable/coil.gif" width="220" height="400" >
-</p>
-
-</br>
-<p align="center">
-<img src="app/src/main/res/drawable/password_field.gif" width="220" height="400" >&nbsp;&nbsp;
-<img src="app/src/main/res/drawable/gradient_button.png" width="220" height="400" >&nbsp;&nbsp;
-<img src="app/src/main/res/drawable/lazy_column.gif" width="220" height="400" ></p>
-
-</br>
-<p align="center">
 <img src="app/src/main/res/drawable/credit_card_.gif" width="220" height="400" >&nbsp;&nbsp;
 <img src="app/src/main/res/drawable/internet_usage.gif" width="220" height="400" >&nbsp;&nbsp;
-<img src="app/src/main/res/drawable/state1.gif" width="220" height="400" ></p>
-
+<img src="app/src/main/res/drawable/state3.gif" width="220" height="400" ></p>
 </br>
+
 <p align="center">
-<img src="app/src/main/res/drawable/state2.gif" width="220" height="400" >&nbsp;&nbsp;
-<img src="app/src/main/res/drawable/state3.gif" width="220" height="400" >&nbsp;&nbsp;
-<img src="app/src/main/res/drawable/state4.gif" width="220" height="400" ></p>
+<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/dea66f7a-b7d4-4a7d-b60f-d9e54b964eaa" width="220" height="400" >&nbsp;&nbsp;
+<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/6fce1e5e-6c3c-4dcb-b65b-3d6fc05af7d6" width="220" height="400" >&nbsp;&nbsp;
+<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/d46b60dc-6451-42a2-8ae4-206c3ddb347c" width="220" height="400" >
+</p>
 
-</br>
-<p align="center">
-<img src="app/src/main/res/drawable/navigation1.gif" width="220" height="400" >&nbsp;&nbsp;
-<img src="app/src/main/res/drawable/view_modal.gif" width="220" height="400" >&nbsp;&nbsp;
-
-
- </br></br>
+</br></br>
 ### Note/Todo App
 <div align="center"><video src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/c190645a-4135-4e83-b69b-ab9e6bb4e7cf" height="400" ></video></div></p>
 
@@ -97,18 +79,6 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <img src="https://github.com/Shahnawazk7944/Simple_Age_Calculator/assets/74444644/c269b598-16ec-4f8b-9ee5-5402eabeb864" width="220" height="400" >&nbsp;&nbsp;
 <img src="https://github.com/Shahnawazk7944/Simple_Age_Calculator/assets/74444644/8b8467d1-0d7b-48e8-835e-0296e753829b" width="220" height="400" >
 </p>
-
-
-</br></br>
-### Some Components
-<p align="center">
-<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/dea66f7a-b7d4-4a7d-b60f-d9e54b964eaa" width="220" height="400" >&nbsp;&nbsp;
-<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/6fce1e5e-6c3c-4dcb-b65b-3d6fc05af7d6" width="220" height="400" >&nbsp;&nbsp;
-<img src="https://github.com/Shahnawazk7944/Android_JetPack_Compose_Practice_Projects/assets/74444644/d46b60dc-6451-42a2-8ae4-206c3ddb347c" width="220" height="400" >
-</p>
-
-
-
 
 <!-- Zeru AI App stuff-->
 </br></br>
