@@ -298,20 +298,13 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <img src="https://github.com/Shahnawazk7944/JForceHiringTask_VotingApp/assets/74444644/f63be46b-497f-48d3-8410-72e7224afef6" width="220" height="400" >&nbsp;&nbsp;
 <img src="https://github.com/Shahnawazk7944/JForceHiringTask_VotingApp/assets/74444644/15244f62-f007-466a-a4e1-3107f989f538" width="220" height="400">&nbsp;&nbsp;</p>
 
-
 <br><br>
 ### UpstockAppTask:
 <div align="center"><video src="https://github.com/user-attachments/assets/7de2edcc-99d5-4109-b541-85bddbe28bb4" height="400" ></video></div>
 
-
 <br><br>
-### CCAuth:
-<div align="center"><video src="https://github.com/user-attachments/assets/b485213e-8e18-4ad9-8f24-245d740f2cb3" height="400" ></video></div>
-
-
-<br><br>
-### CCCommunityChats:
-<div align="center"><video src="https://github.com/user-attachments/assets/06b3d587-3d0d-4a6f-99e9-952e999cb3a3" height="400" ></video></div>
+### CC_Preview:
+<div align="center"><video src="https://github.com/user-attachments/assets/2d40963d-d6e9-4b3b-bc97-ad7243267cf2" height="400" ></video></div>
 
 <br><br>
 ### Za_Zoo_RefreshmentFinderTask:
@@ -331,6 +324,7 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 
 
 <!-- Practice stuff-->
+
 
 
 
