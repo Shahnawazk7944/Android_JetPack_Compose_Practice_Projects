@@ -311,6 +311,10 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <div align="center"><video src="https://github.com/user-attachments/assets/2d40963d-d6e9-4b3b-bc97-ad7243267cf2" height="400" ></video></div>
 
 <br><br>
+### Freelance work for a hospital aggregator:
+<div align="center"><video src="https://github.com/user-attachments/assets/e173e357-d46d-46d1-a55c-01b665296c73" height="400" ></video></div>
+
+<br><br>
 ### Za_Zoo_RefreshmentFinderTask:
 <div align="center"><video src="https://github.com/user-attachments/assets/748bb704-b020-4bb1-a09a-c7ff4156cd92" height="400" ></video></div>
 
@@ -318,6 +322,8 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 ### LonaConnectAppTask:
 <div align="center"><video src="https://github.com/user-attachments/assets/d9f8f8e2-077a-414e-afea-85c85c6add00" height="400" ></video></div>
 <br><br>
+
+
 
 
 
