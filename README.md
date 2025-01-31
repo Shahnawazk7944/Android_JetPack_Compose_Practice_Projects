@@ -303,6 +303,10 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <div align="center"><video src="https://github.com/user-attachments/assets/7de2edcc-99d5-4109-b541-85bddbe28bb4" height="400" ></video></div>
 
 <br><br>
+### Swipe Task:
+<div align="center"><video src="https://github.com/user-attachments/assets/0576575e-b1d5-4581-bace-69d1e3e402a3" height="400" ></video></div>
+
+<br><br>
 ### BranchInternationalTask (Private Repo):
 <div align="center"><video src="https://github.com/user-attachments/assets/3f4fbf0e-ece2-4379-916e-11eb391fcad3" height="400" ></video></div>
 
