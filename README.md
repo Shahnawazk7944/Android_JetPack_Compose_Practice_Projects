@@ -311,6 +311,14 @@ This document outlines my 100-day exploration of Kotlin and Jetpack Compose, whe
 <div align="center"><video src="https://github.com/user-attachments/assets/3f4fbf0e-ece2-4379-916e-11eb391fcad3" height="400" ></video></div>
 
 <br><br>
+### Shoes UI Task ( Billion Hearts ):
+<div align="center"><video src="https://github.com/user-attachments/assets/6cad4b33-76c5-4fa5-a257-8dc11a5f0957" height="400" ></video></div>
+
+<br><br>
+### Quize UI Task ( Physicswallah ):
+<div align="center"><video src="https://github.com/user-attachments/assets/2cf2e8fc-0ca3-411c-aca6-49ac784b0a1a" height="400" ></video></div>
+
+<br><br>
 ### CC_Preview:
 <div align="center"><video src="https://github.com/user-attachments/assets/2d40963d-d6e9-4b3b-bc97-ad7243267cf2" height="400" ></video></div>
 
